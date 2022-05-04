@@ -49,6 +49,7 @@ public class NewPlayer : PhysicsObject
     public float maxSpeed = 7; //Max move speed
     public float jumpPower = 17;
     private bool jumping;
+    public int color = 0;
     private Vector3 origLocalScale;
     [System.NonSerialized] public bool pounded;
     [System.NonSerialized] public bool pounding;
@@ -132,11 +133,13 @@ public class NewPlayer : PhysicsObject
                graphic.transform.localScale = new Vector3(-origLocalScale.x, transform.localScale.y, transform.localScale.z);
             }
 
-            //Punch
+            //Punch 
+            //New: change color
             if (Input.GetMouseButtonDown(0))
             {
-                animator.SetTrigger("attack");
-                Shoot(false);
+                //animator.SetTrigger("attack");
+                //Shoot(false);
+                color = (color + 1) % 4;
             }
 
             //Secondary attack (currently shooting) with right click
