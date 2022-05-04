@@ -24,26 +24,22 @@ public class Dialogue : MonoBehaviour
 
         //NPC
         dialogue.Add("CharacterA", new string[] {
-            "Hi there!",
-            "I'm an NPC! This conversation is called 'npcA'...",
-            "If you go and find me 80 coins, my dialogue will move on to 'npcB'!",
-            "Feel free to edit my dialogue in the 'Dialogue.cs' file!",
-            "To keep it simple, you can also ask me one, and only one, question...",
-            "...Like you just did! And I'll just move on to the next sentence.",
-            "I'll answer that question, but it won't change much about the game!",
-            "You can always tweak the 'DialogueBox.cs' script to add more functionality!"
+            "Hey man, how are you doing today?",
+            "I'm an NPC!",
+            "If you wanna hang out let me know!",
+            "You are my best friend!"
         });
 
         dialogue.Add("CharacterAChoice1", new string[] {
             "",
             "",
-            "Let me go find some coins!",
+            "Stop being annoying pls."
         });
 
         dialogue.Add("CharacterAChoice2", new string[] {
             "",
             "",
-            "What else can you do?"
+            "Yeah i'm in!"
         });
 
         dialogue.Add("CharacterB", new string[] {

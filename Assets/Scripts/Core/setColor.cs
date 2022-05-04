@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class setColor : MonoBehaviour
@@ -18,16 +16,16 @@ public class setColor : MonoBehaviour
         switch (playerScript.color)
         {
             case 0:
-                sr.color = Color.green;
+                sr.color = new Color(0.25f, 0.7f, 0.25f, 1);
                 break;
             case 1:
-                sr.color = Color.yellow;
+                sr.color = new Color(0.7f, 0.25f, 0.25f, 1);
                 break;
             case 2:
-                sr.color = Color.red;
+                sr.color = new Color(0.25f, 0.25f, 0.7f, 1);
                 break;
             case 3:
-                sr.color = Color.blue;
+                sr.color = new Color(0.7f, 0.7f, 0.25f, 1);
                 break;
         }
     }
