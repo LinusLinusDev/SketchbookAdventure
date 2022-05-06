@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 805511816886531264}
   - component: {fileID: 3639979752584733918}
-  - component: {fileID: 5413407811916702889}
   m_Layer: 0
   m_Name: Stone2
   m_TagString: Untagged
@@ -84,31 +83,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!68 &5413407811916702889
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8727984389369507468}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.6874461, y: -0.25798059}
-  - {x: -0.7460213, y: -0.09062421}
-  - {x: -0.5366936, y: 0.1929543}
-  - {x: 0.5376587, y: 0.19642025}
-  - {x: 0.6582756, y: 0.07436311}
-  - {x: 0.70900345, y: -0.14296079}
-  - {x: 0.5852585, y: -0.26541245}
-  - {x: -0.6850095, y: -0.24766123}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
