@@ -14,6 +14,9 @@ public class HUD : MonoBehaviour
     [SerializeField] private GameObject ammoBar;
     public TextMeshProUGUI coinsMesh;
     [SerializeField] private GameObject healthBar;
+    [SerializeField] private GameObject redColorBar;
+    [SerializeField] private GameObject greenColorBar;
+    [SerializeField] private GameObject blueColorBar;
     [SerializeField] private Image inventoryItemGraphic;
     [SerializeField] private GameObject startUp;
 
@@ -24,6 +27,13 @@ public class HUD : MonoBehaviour
     private float coinsEased;
     private float healthBarWidth;
     private float healthBarWidthEased;
+    private float redBarWidth;
+    private float redBarWidthEased;
+    private float greenBarWidth;
+    private float greenBarWidthEased;
+    private float blueBarWidth;
+    private float blueBarWidthEased;
+    
     [System.NonSerialized] public string loadSceneName;
     [System.NonSerialized] public bool resetPlayer;
 
@@ -32,6 +42,12 @@ public class HUD : MonoBehaviour
         //Set all bar widths to 1, and also the smooth variables.
         healthBarWidth = 1;
         healthBarWidthEased = healthBarWidth;
+        redBarWidth = 1;
+        redBarWidthEased = redBarWidth;
+        greenBarWidth = 1;
+        greenBarWidthEased = greenBarWidth;
+        blueBarWidth = 1;
+        blueBarWidthEased = blueBarWidth;
         ammoBarWidth = 1;
         ammoBarWidthEased = ammoBarWidth;
         coins = (float)NewPlayer.Instance.coins;
@@ -50,11 +66,25 @@ public class HUD : MonoBehaviour
             animator.SetTrigger("getGem");
             coins = coinsEased + 1;
         }
-
+        /*
         //Controls the width of the health bar based on the player's total health
         healthBarWidth = (float)NewPlayer.Instance.health / (float)NewPlayer.Instance.maxHealth;
         healthBarWidthEased += (healthBarWidth - healthBarWidthEased) * Time.deltaTime * healthBarWidthEased;
         healthBar.transform.localScale = new Vector2(healthBarWidthEased, 1);
+        */
+        
+        //Color Bars
+        redBarWidth = (float)NewPlayer.Instance.redColor / (float)NewPlayer.Instance.maxColor;
+        redBarWidthEased += (redBarWidth - redBarWidthEased) * Time.deltaTime * redBarWidthEased;
+        redColorBar.transform.localScale = new Vector2(redBarWidthEased, 1);
+        
+        greenBarWidth = (float)NewPlayer.Instance.greenColor / (float)NewPlayer.Instance.maxColor;
+        greenBarWidthEased += (greenBarWidth - greenBarWidthEased) * Time.deltaTime * greenBarWidthEased;
+        greenColorBar.transform.localScale = new Vector2(greenBarWidthEased, 1);
+        
+        blueBarWidth = (float)NewPlayer.Instance.blueColor / (float)NewPlayer.Instance.maxColor;
+        blueBarWidthEased += (blueBarWidth - blueBarWidthEased) * Time.deltaTime * blueBarWidthEased;
+        blueColorBar.transform.localScale = new Vector2(blueBarWidthEased, 1);
 
         //Controls the width of the ammo bar based on the player's total ammo
         if (ammoBar)

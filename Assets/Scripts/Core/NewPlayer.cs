@@ -61,6 +61,10 @@ public class NewPlayer : PhysicsObject
     public int health;
     public int maxHealth;
     public int maxAmmo;
+    public int maxColor;
+    public int redColor;
+    public int greenColor;
+    public int blueColor;
 
     [Header ("Sounds")]
     public AudioClip deathSound;
@@ -83,6 +87,9 @@ public class NewPlayer : PhysicsObject
         //Cursor.visible = false;
         SetUpCheatItems();
         health = maxHealth;
+        redColor = maxColor;
+        greenColor = maxColor;
+        blueColor = maxColor;
         animatorFunctions = GetComponent<AnimatorFunctions>();
         origLocalScale = transform.localScale;
         recoveryCounter = GetComponent<RecoveryCounter>();
@@ -139,10 +146,40 @@ public class NewPlayer : PhysicsObject
             {
                 //animator.SetTrigger("attack");
                 //Shoot(false);
-                color = (color + 1) % 4;
+                color = (color + 1) % 6;
+            }
+            
+            //New: use color
+            if (Input.GetMouseButtonDown(1))
+            {
+                switch (color)
+                {
+                    case 0:
+                        greenColor -= 2;
+                        break;
+                    case 1:
+                        greenColor -= 1;
+                        blueColor -= 1;
+                        break;
+                    case 2:
+                        blueColor -= 2;
+                        break;
+                    case 3:
+                        blueColor -= 1;
+                        redColor -= 1;
+                        break;
+                    case 4:
+                        redColor -= 2;
+                        break;
+                    case 5:
+                        redColor -= 1;
+                        greenColor -= 1;
+                        break;
+                }
             }
 
             //Secondary attack (currently shooting) with right click
+            /*
             if (Input.GetMouseButtonDown(1))
             {
                 Shoot(true);
@@ -156,6 +193,7 @@ public class NewPlayer : PhysicsObject
             {
                 SubtractAmmo();
             }
+            */
 
             //Allow the player to jump even if they have just fallen off an edge ("fall forgiveness")
             if (!grounded)
@@ -294,6 +332,9 @@ public class NewPlayer : PhysicsObject
         Freeze(true);
         dead = false;
         health = maxHealth;
+        redColor = maxColor;
+        greenColor = maxColor;
+        blueColor = maxColor;
     }
 
     public void SubtractAmmo()

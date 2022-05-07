@@ -18,11 +18,9 @@ public class BushTriggerAnimation : MonoBehaviour
         if (sr.sortingLayerName == "Layer0Before" || sr.sortingLayerName == "Layer0Behind")
         {
             bushAnimator.SetTrigger("Shake");
-            int rnd = Random.Range(1, 3);
-            print(rnd);
-            if (rnd == 1)
+            if (sound != null && Random.Range(1, 3) == 1)
             {
-                AudioSource.PlayClipAtPoint(sound, transform.position);
+                GameManager.Instance.audioSource.PlayOneShot(sound, Random.Range(.6f, 0.3f));
             }
         }
     }
