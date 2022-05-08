@@ -569,7 +569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &224908452087460466
 RectTransform:
   m_ObjectHideFlags: 0
@@ -668,5 +668,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressSound: {fileID: 8300000, guid: 0b9ead35480c34b73aa5ac9d276aeddc, type: 3}
-  openSound: {fileID: 8300000, guid: 40f4e6a7e4d364fbc83c390a768855cc, type: 3}
+  openSound: {fileID: 8300000, guid: 3838923b1081744079ee5823647ba269, type: 3}
   pauseMenu: {fileID: 0}

@@ -546,7 +546,7 @@ AnimationClip:
   - time: 0.11666667
     functionName: PlaySound
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 30a47ee6c4f154fd294dc3ba1d75fe54,
+    objectReferenceParameter: {fileID: 8300000, guid: c757c42efb89c4497b8397c512ab2aee,
       type: 3}
     floatParameter: 0
     intParameter: 0
@@ -554,7 +554,7 @@ AnimationClip:
   - time: 0.31666666
     functionName: PlaySound
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 30a47ee6c4f154fd294dc3ba1d75fe54,
+    objectReferenceParameter: {fileID: 8300000, guid: c757c42efb89c4497b8397c512ab2aee,
       type: 3}
     floatParameter: 0
     intParameter: 0
