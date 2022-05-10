@@ -75,15 +75,15 @@ public class HUD : MonoBehaviour
         
         //Color Bars
         redBarWidth = (float)NewPlayer.Instance.redColor / (float)NewPlayer.Instance.maxColor;
-        redBarWidthEased += (redBarWidth - redBarWidthEased) * Time.deltaTime * redBarWidthEased;
+        redBarWidthEased += (redBarWidth - redBarWidthEased) * Time.deltaTime;
         redColorBar.transform.localScale = new Vector2(redBarWidthEased, 1);
         
         greenBarWidth = (float)NewPlayer.Instance.greenColor / (float)NewPlayer.Instance.maxColor;
-        greenBarWidthEased += (greenBarWidth - greenBarWidthEased) * Time.deltaTime * greenBarWidthEased;
+        greenBarWidthEased += (greenBarWidth - greenBarWidthEased) * Time.deltaTime;
         greenColorBar.transform.localScale = new Vector2(greenBarWidthEased, 1);
         
         blueBarWidth = (float)NewPlayer.Instance.blueColor / (float)NewPlayer.Instance.maxColor;
-        blueBarWidthEased += (blueBarWidth - blueBarWidthEased) * Time.deltaTime * blueBarWidthEased;
+        blueBarWidthEased += (blueBarWidth - blueBarWidthEased) * Time.deltaTime;
         blueColorBar.transform.localScale = new Vector2(blueBarWidthEased, 1);
 
         //Controls the width of the ammo bar based on the player's total ammo

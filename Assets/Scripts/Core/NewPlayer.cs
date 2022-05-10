@@ -49,6 +49,7 @@ public class NewPlayer : PhysicsObject
     public float maxSpeed = 7; //Max move speed
     public float jumpPower = 17;
     private bool jumping;
+    private bool doubleJump;
     public int color = 0;
     private Vector3 origLocalScale;
     [System.NonSerialized] public bool pounded;
@@ -127,7 +128,15 @@ public class NewPlayer : PhysicsObject
             if (Input.GetButtonDown("Jump") && animator.GetBool("grounded") == true && !jumping)
             {
                 animator.SetBool("pounded", false);
+                doubleJump = true;
                 Jump(1f);
+            }
+            
+            else if (Input.GetButtonDown("Jump") && doubleJump && color == 2 && blueColor >= 2)
+            {
+                blueColor -= 2;
+                doubleJump = false;
+                Jump(0.8f);
             }
 
             //Flip the graphic's localScale
