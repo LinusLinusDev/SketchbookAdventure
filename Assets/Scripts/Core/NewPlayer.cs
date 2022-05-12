@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 /*Adds player functionality to a physics object*/
 
@@ -35,7 +38,7 @@ public class NewPlayer : PhysicsObject
         }
     }
 
-    [Header("Properties")]
+    [Header("Properties")] private Rigidbody2D rdb;
     [SerializeField] private string[] cheatItems;
     public bool dead = false;
     public bool frozen = false;
@@ -44,12 +47,14 @@ public class NewPlayer : PhysicsObject
     [System.NonSerialized] public string groundType = "grass";
     [System.NonSerialized] public RaycastHit2D ground; 
     [SerializeField] Vector2 hurtLaunchPower; //How much force should be applied to the player when getting hurt?
-    private float launch; //The float added to x and y moveSpeed. This is set with hurtLaunchPower, and is always brought back to zero
+    public float launch; //The float added to x and y moveSpeed. This is set with hurtLaunchPower, and is always brought back to zero
     [SerializeField] private float launchRecovery; //How slow should recovering from the launch be? (Higher the number, the longer the launch will last)
     public float maxSpeed = 7; //Max move speed
     public float jumpPower = 17;
     private bool jumping;
     private bool doubleJump;
+    private bool dash;
+    private float horizontalInput;
     public int color = 0;
     private Vector3 origLocalScale;
     [System.NonSerialized] public bool pounded;
@@ -63,9 +68,7 @@ public class NewPlayer : PhysicsObject
     public int maxHealth;
     public int maxAmmo;
     public int maxColor;
-    public int redColor;
-    public int greenColor;
-    public int blueColor;
+    public int[] colorAmmo;
 
     [Header ("Sounds")]
     public AudioClip deathSound;
@@ -86,11 +89,11 @@ public class NewPlayer : PhysicsObject
     void Start()
     {
         //Cursor.visible = false;
+        rdb = GetComponent<Rigidbody2D>();
         SetUpCheatItems();
         health = maxHealth;
-        redColor = maxColor;
-        greenColor = maxColor;
-        blueColor = maxColor;
+        colorAmmo = new int[3];
+        for (int i = 0; i < colorAmmo.Length; i++) colorAmmo[i] = maxColor;
         animatorFunctions = GetComponent<AnimatorFunctions>();
         origLocalScale = transform.localScale;
         recoveryCounter = GetComponent<RecoveryCounter>();
@@ -119,24 +122,39 @@ public class NewPlayer : PhysicsObject
         {
             pauseMenu.SetActive(true);
         }
-
-        //Movement, jumping, and attacking!
+        
         if (!frozen)
         {
-            move.x = Input.GetAxis("Horizontal") + launch;
+            // Move   
+            if (math.abs(launch) < 0.6f)
+            {
+                horizontalInput = Input.GetAxis("Horizontal");
+                launch = 0;
+            }
+            else velocity.y = 0;
+            move.x = horizontalInput + launch;
 
+            // Jump
             if (Input.GetButtonDown("Jump") && animator.GetBool("grounded") == true && !jumping)
             {
                 animator.SetBool("pounded", false);
-                doubleJump = true;
                 Jump(1f);
             }
             
-            else if (Input.GetButtonDown("Jump") && doubleJump && color == 2 && blueColor >= 2)
+            // Doublejump
+            else if (Input.GetButtonDown("Jump") && doubleJump && color == 1 && colorAmmo[color] >= 2)
             {
-                blueColor -= 2;
+                colorAmmo[color] -= 2;
                 doubleJump = false;
                 Jump(0.8f);
+            }
+            
+            // Dash
+            if (Input.GetKeyDown(KeyCode.LeftShift) && dash && color == 2 && colorAmmo[color] >= 2)
+            {
+                colorAmmo[color] -= 2;
+                dash = false;
+                Dash(20f);
             }
 
             //Flip the graphic's localScale
@@ -149,60 +167,51 @@ public class NewPlayer : PhysicsObject
                graphic.transform.localScale = new Vector3(-origLocalScale.x, transform.localScale.y, transform.localScale.z);
             }
 
-            //Punch 
-            //New: change color
-            if (Input.GetMouseButtonDown(0))
+            if (color != 3)
             {
-                //animator.SetTrigger("attack");
-                //Shoot(false);
-                color = (color + 1) % 6;
+                if (Input.GetKeyDown("e"))    
+                {
+                    if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
+                    else if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
+                }
+            
+                if (Input.GetKeyDown("q"))
+                {
+                    if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
+                    else if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
+                }
+            
+                if (colorAmmo.All(val => val <= 0)) color = 3;
+                else if (colorAmmo[color] <= 0)color = (color + 1) % 3;
+                
+                //Cheat
+                if (Input.GetMouseButtonDown(1))
+                    colorAmmo[color] -= 2;
+                //
+            }
+            else
+            {
+                if (colorAmmo[0] > 0) color = 0;
+                else if (colorAmmo[1] > 0) color = 1;
+                else if (colorAmmo[2] > 0) color = 2;
             }
             
-            //New: use color
-            if (Input.GetMouseButtonDown(1))
+            // Cheat
+            if (Input.GetKeyDown("g"))
             {
-                switch (color)
-                {
-                    case 0:
-                        greenColor -= 2;
-                        break;
-                    case 1:
-                        greenColor -= 1;
-                        blueColor -= 1;
-                        break;
-                    case 2:
-                        blueColor -= 2;
-                        break;
-                    case 3:
-                        blueColor -= 1;
-                        redColor -= 1;
-                        break;
-                    case 4:
-                        redColor -= 2;
-                        break;
-                    case 5:
-                        redColor -= 1;
-                        greenColor -= 1;
-                        break;
-                }
+                colorAmmo[0] += 2;
             }
-
-            //Secondary attack (currently shooting) with right click
-            /*
-            if (Input.GetMouseButtonDown(1))
+            
+            if (Input.GetKeyDown("b"))
             {
-                Shoot(true);
+                colorAmmo[1] += 2;
             }
-            else if (Input.GetMouseButtonUp(1))
+            
+            if (Input.GetKeyDown("r"))
             {
-                Shoot(false);
+                colorAmmo[2] += 2;
             }
-
-            if (shooting)
-            {
-                SubtractAmmo();
-            }
-            */
+            //
 
             //Allow the player to jump even if they have just fallen off an edge ("fall forgiveness")
             if (!grounded)
@@ -218,6 +227,8 @@ public class NewPlayer : PhysicsObject
             }
             else
             {
+                doubleJump = true;
+                dash = true;
                 fallForgivenessCounter = 0;
                 animator.SetBool("grounded", true);
             }
@@ -229,10 +240,7 @@ public class NewPlayer : PhysicsObject
             animator.SetInteger("moveDirection", (int)Input.GetAxis("HorizontalDirection"));
             animator.SetBool("hasChair", GameManager.Instance.inventory.ContainsKey("chair"));
             targetVelocity = move * maxSpeed;
-
-
-
-
+            
         }
         else
         {
@@ -341,9 +349,7 @@ public class NewPlayer : PhysicsObject
         Freeze(true);
         dead = false;
         health = maxHealth;
-        redColor = maxColor;
-        greenColor = maxColor;
-        blueColor = maxColor;
+        for (int i = 0; i < colorAmmo.Length; i++) colorAmmo[i] = maxColor;
     }
 
     public void SubtractAmmo()
@@ -364,6 +370,14 @@ public class NewPlayer : PhysicsObject
             JumpEffect();
             jumping = true;
         }
+    }
+    
+    public void Dash(float dashPower)
+    {
+        //PlayDashSound();
+        PlayStepSound();
+        JumpEffect();
+        launch = dashPower*transform.localScale.x;
     }
 
     public void PlayStepSound()
