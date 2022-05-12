@@ -92,6 +92,7 @@ MonoBehaviour:
   colorNumber: 0
   e: {fileID: 8877126673656023497}
   q: {fileID: 7679919761755821065}
+  ammo: 0
 --- !u!1 &1801850873
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +185,7 @@ MonoBehaviour:
   colorNumber: 2
   e: {fileID: 6975574850536716639}
   q: {fileID: 1465697610990669703}
+  ammo: 0
 --- !u!1 &1155492691343396
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +845,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00018310547, y: -110}
+  m_AnchoredPosition: {x: -0.00018310547, y: -119.7}
   m_SizeDelta: {x: 481.45355, y: 53.32672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1607133546322344
@@ -991,6 +993,7 @@ MonoBehaviour:
   colorNumber: 1
   e: {fileID: 7909293912819702991}
   q: {fileID: 7753229553368639643}
+  ammo: 0
 --- !u!1 &1629463316529854
 GameObject:
   m_ObjectHideFlags: 0
