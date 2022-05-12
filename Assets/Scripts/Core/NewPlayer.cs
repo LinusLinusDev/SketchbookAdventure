@@ -147,6 +147,7 @@ public class NewPlayer : PhysicsObject
                 colorAmmo[color] -= 2;
                 doubleJump = false;
                 Jump(0.8f);
+                animator.SetTrigger("doubleJump");
             }
             
             // Dash
@@ -378,6 +379,7 @@ public class NewPlayer : PhysicsObject
         PlayStepSound();
         JumpEffect();
         launch = dashPower*transform.localScale.x;
+        animator.SetTrigger("dash");
     }
 
     public void PlayStepSound()
