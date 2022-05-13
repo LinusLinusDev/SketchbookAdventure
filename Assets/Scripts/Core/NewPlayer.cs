@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
@@ -51,9 +52,13 @@ public class NewPlayer : PhysicsObject
     [SerializeField] private float launchRecovery; //How slow should recovering from the launch be? (Higher the number, the longer the launch will last)
     public float maxSpeed = 7; //Max move speed
     public float jumpPower = 17;
+    public float dashPower = 20;
     private bool jumping;
+    public bool climbing;
+    private bool dashing;
     private bool doubleJump;
     private bool dash;
+    private float verticalInput;
     private float horizontalInput;
     public int color = 0;
     private Vector3 origLocalScale;
@@ -109,6 +114,20 @@ public class NewPlayer : PhysicsObject
         ComputeVelocity();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!grounded && color == 0 && other.gameObject.CompareTag("Climb"))
+        {
+            climbing = true;
+            colorAmmo[color] -= 100;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Climb")) climbing = false;
+    }
+
     protected void ComputeVelocity()
     {
         //Player movement & attack
@@ -122,7 +141,7 @@ public class NewPlayer : PhysicsObject
         {
             pauseMenu.SetActive(true);
         }
-        
+
         if (!frozen)
         {
             // Move   
@@ -130,8 +149,9 @@ public class NewPlayer : PhysicsObject
             {
                 horizontalInput = Input.GetAxis("Horizontal");
                 launch = 0;
+                dashing = false;
             }
-            else velocity.y = 0;
+            else if(dashing) velocity.y = 0;
             move.x = horizontalInput + launch;
 
             // Jump
@@ -144,7 +164,7 @@ public class NewPlayer : PhysicsObject
             // Doublejump
             else if (Input.GetButtonDown("Jump") && doubleJump && color == 1 && colorAmmo[color] >= 2)
             {
-                colorAmmo[color] -= 2;
+                colorAmmo[color] -= 200;
                 doubleJump = false;
                 Jump(0.8f);
                 animator.SetTrigger("doubleJump");
@@ -153,11 +173,34 @@ public class NewPlayer : PhysicsObject
             // Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && dash && color == 2 && colorAmmo[color] >= 2)
             {
-                colorAmmo[color] -= 2;
+                colorAmmo[color] -= 200;
                 dash = false;
-                Dash(20f);
+                Dash(1f);
             }
 
+            // Climb
+            if (climbing)
+            {
+                verticalInput = Input.GetAxis("Vertical");
+                transform.Translate(0,verticalInput*0.02f,0);
+                if (verticalInput != 0) colorAmmo[color] -= 1;
+                velocity.y = 0;
+                gravityModifier = 0;
+                doubleJump = true;
+                dash = true;
+                if ((transform.localScale.x > 0 && horizontalInput < 0) || (transform.localScale.x < 0 && horizontalInput > 0)) climbing = false;
+                if (Input.GetButtonDown("Jump"))
+                {
+                    climbing = false;
+                    launch = -transform.localScale.x*15;
+                    Jump(1f);
+                }
+            }
+            else
+            {
+                gravityModifier = 3.2f;
+            }
+            
             //Flip the graphic's localScale
             if (move.x > 0.01f)
             {
@@ -187,7 +230,7 @@ public class NewPlayer : PhysicsObject
                 
                 //Cheat
                 if (Input.GetMouseButtonDown(1))
-                    colorAmmo[color] -= 2;
+                    colorAmmo[color] -= 200;
                 //
             }
             else
@@ -196,21 +239,23 @@ public class NewPlayer : PhysicsObject
                 else if (colorAmmo[1] > 0) color = 1;
                 else if (colorAmmo[2] > 0) color = 2;
             }
+
+            if (color != 0) climbing = false;
             
             // Cheat
             if (Input.GetKeyDown("g"))
             {
-                colorAmmo[0] += 2;
+                colorAmmo[0] += 200;
             }
             
             if (Input.GetKeyDown("b"))
             {
-                colorAmmo[1] += 2;
+                colorAmmo[1] += 200;
             }
             
             if (Input.GetKeyDown("r"))
             {
-                colorAmmo[2] += 2;
+                colorAmmo[2] += 200;
             }
             //
 
@@ -228,6 +273,7 @@ public class NewPlayer : PhysicsObject
             }
             else
             {
+                climbing = false;
                 doubleJump = true;
                 dash = true;
                 fallForgivenessCounter = 0;
@@ -235,6 +281,7 @@ public class NewPlayer : PhysicsObject
             }
 
             //Set each animator float, bool, and trigger to it knows which animation to fire
+            animator.SetBool("climb", climbing);
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
             animator.SetFloat("velocityY", velocity.y);
             animator.SetInteger("attackDirectionY", (int)Input.GetAxis("VerticalDirection"));
@@ -373,12 +420,13 @@ public class NewPlayer : PhysicsObject
         }
     }
     
-    public void Dash(float dashPower)
+    public void Dash(float dashMultiplier)
     {
         //PlayDashSound();
         PlayStepSound();
         JumpEffect();
-        launch = dashPower*transform.localScale.x;
+        dashing = true;
+        launch = dashPower*dashMultiplier*transform.localScale.x;
         animator.SetTrigger("dash");
     }
 
