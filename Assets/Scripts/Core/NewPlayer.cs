@@ -149,8 +149,11 @@ public class NewPlayer : PhysicsObject
             if (math.abs(launch) < 0.6f)
             {
                 horizontalInput = Input.GetAxis("Horizontal");
-                launch = 0;
-                dashing = false;
+                if (dashing)
+                {
+                    launch = 0;
+                    dashing = false;
+                }
             }
             else if(dashing) velocity.y = 0;
             move.x = horizontalInput + launch;
@@ -182,6 +185,7 @@ public class NewPlayer : PhysicsObject
             // Climb
             if (climbing)
             {
+                launch = 0;
                 verticalInput = Input.GetAxis("Vertical");
                 transform.Translate(0,verticalInput*0.02f,0);
                 if (verticalInput != 0) colorAmmo[color] -= 1;
