@@ -888,7 +888,7 @@ MonoBehaviour:
   - {fileID: 819700076784729849}
   - {fileID: 1354879882590057215}
   m_Bounds:
-    m_Center: {x: 6.6423993, y: 5.841954, z: 0}
+    m_Center: {x: 6.6423993, y: 5.841955, z: 0}
     m_Extent: {x: 0.54426193, y: 0.5276153, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -6250,7 +6250,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2479047043147458010}
-  m_LocalRotation: {x: -0, y: -0, z: 0.031335846, w: 0.999509}
+  m_LocalRotation: {x: -0, y: -0, z: 0.031335905, w: 0.999509}
   m_LocalPosition: {x: 1.07, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -26085,8 +26085,8 @@ MonoBehaviour:
   - {fileID: 819700076784729849}
   - {fileID: 1814033548308582051}
   m_Bounds:
-    m_Center: {x: 6.619757, y: 5.69598, z: 0}
-    m_Extent: {x: 0.7909217, y: 0.42488217, z: 0}
+    m_Center: {x: 6.619757, y: 5.6959805, z: 0}
+    m_Extent: {x: 0.7909217, y: 0.4248824, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &2063963998884369677
@@ -26360,8 +26360,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.36633492, y: 8.75564}
-  m_Size: {x: 2.2728539, y: 9.424438}
+  m_Offset: {x: 0.36633492, y: 7.5356617}
+  m_Size: {x: 2.2728539, y: 6.984415}
   m_Direction: 0
 --- !u!82 &3409210518529089281
 AudioSource:
@@ -31930,7 +31930,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4131485640879134053}
-  m_LocalRotation: {x: 0, y: 0, z: 0.676839, w: 0.7361312}
+  m_LocalRotation: {x: 0, y: 0, z: 0.67683893, w: 0.7361312}
   m_LocalPosition: {x: 1.0790343, y: 0.6652933, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31961,7 +31961,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4353263651789852642}
-  m_LocalRotation: {x: 0, y: 0, z: 0.03270345, w: 0.9994651}
+  m_LocalRotation: {x: -0, y: -0, z: 0.032703463, w: 0.9994651}
   m_LocalPosition: {x: 1.1003877, y: 0.00000020687334, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31970,7 +31970,7 @@ Transform:
   - {fileID: 1814033548308582051}
   m_Father: {fileID: 4020482280366244278}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.748}
 --- !u!1 &4477018037754375252
 GameObject:
   m_ObjectHideFlags: 0
@@ -32619,8 +32619,8 @@ MonoBehaviour:
   - {fileID: 1354879882590057215}
   - {fileID: 1814033548308582051}
   m_Bounds:
-    m_Center: {x: 6.62498, y: 5.6971483, z: 0}
-    m_Extent: {x: 0.7861512, y: 0.426471, z: 0}
+    m_Center: {x: 6.62498, y: 5.697148, z: 0}
+    m_Extent: {x: 0.7861512, y: 0.42647123, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &5547675070022381955
@@ -32724,8 +32724,8 @@ MonoBehaviour:
   - {fileID: 819700076784729849}
   - {fileID: 1354879882590057215}
   m_Bounds:
-    m_Center: {x: 6.644881, y: 5.7853136, z: 0}
-    m_Extent: {x: 0.5386777, y: 0.52354884, z: 0}
+    m_Center: {x: 6.6448812, y: 5.7853136, z: 0}
+    m_Extent: {x: 0.53867793, y: 0.52354884, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &5713334108240601683
@@ -33252,7 +33252,7 @@ MonoBehaviour:
   - {fileID: 1354879882590057215}
   - {fileID: 819700076784729849}
   m_Bounds:
-    m_Center: {x: 6.6377134, y: 5.796363, z: 0}
+    m_Center: {x: 6.6377134, y: 5.7963634, z: 0}
     m_Extent: {x: 0.6238272, y: 0.5700984, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
