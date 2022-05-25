@@ -284,7 +284,7 @@ public class DialogueBoxController : MonoBehaviour
             }
 
             textMesh.text += c;
-            audioSource.PlayOneShot(typeSounds[Random.Range(0, typeSounds.Length)], Random.Range(.3f, .5f));
+            audioSource.PlayOneShot(typeSounds[Random.Range(0, typeSounds.Length)], Random.Range(.3f, .5f)*NewPlayer.Instance.soundVolume);
             yield return wait;
         }
     }

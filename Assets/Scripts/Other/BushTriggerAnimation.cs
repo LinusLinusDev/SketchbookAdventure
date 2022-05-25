@@ -20,7 +20,7 @@ public class BushTriggerAnimation : MonoBehaviour
             bushAnimator.SetTrigger("Shake");
             if (sound != null && Random.Range(1, 3) == 1)
             {
-                GameManager.Instance.audioSource.PlayOneShot(sound, Random.Range(.6f, 0.3f));
+                GameManager.Instance.audioSource.PlayOneShot(sound, Random.Range(.6f, 0.3f) * NewPlayer.Instance.soundVolume);
             }
         }
     }

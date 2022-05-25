@@ -49,7 +49,7 @@ public class EnemyBase : MonoBehaviour
                 animator.SetTrigger("hurt");
 
                 audioSource.pitch = (1);
-                audioSource.PlayOneShot(hitSound);
+                audioSource.PlayOneShot(hitSound,NewPlayer.Instance.soundVolume);
 
                 //Ensure the enemy and also the player cannot engage in hitting each other for the max recoveryTime for each
                 recoveryCounter.counter = 0;
