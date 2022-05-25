@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     void OnEnable()
     {
         Cursor.visible = true;
-        GameManager.Instance.audioSource.PlayOneShot(openSound, NewPlayer.Instance.soundVolume);
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
         Time.timeScale = 0f;
     }
 
@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.visible = false;
         gameObject.SetActive(false);
-        GameManager.Instance.audioSource.PlayOneShot(openSound, NewPlayer.Instance.soundVolume);
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
         Time.timeScale = 1f;
     }
 

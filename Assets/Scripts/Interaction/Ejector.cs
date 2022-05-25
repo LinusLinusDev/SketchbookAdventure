@@ -53,7 +53,7 @@ public class Ejector : MonoBehaviour
     {
         if (launchOnStart && collectableTrigger.enabled)
         {
-            audioSource.PlayOneShot(bounceSound, rb.velocity.magnitude / 10 * audioSource.volume *NewPlayer.Instance.soundVolume);
+            audioSource.PlayOneShot(bounceSound, rb.velocity.magnitude / 10 * audioSource.volume * GameManager.Instance.audioSource.volume);
         }
     }
 

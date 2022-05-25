@@ -2960,6 +2960,11 @@ PrefabInstance:
       propertyPath: dialogueBoxController
       value: 
       objectReference: {fileID: 7113145124468738143}
+    - target: {fileID: 2902462224266964070, guid: 1e45fe2070dd5483db2ebd3e8b5dae90,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e45fe2070dd5483db2ebd3e8b5dae90, type: 3}
 --- !u!4 &5395585229388837297 stripped

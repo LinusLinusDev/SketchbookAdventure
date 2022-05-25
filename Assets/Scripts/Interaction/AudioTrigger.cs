@@ -113,10 +113,16 @@ public class AudioTrigger : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    public void changeVolume(Slider slider)
+    public void changeMusicVolume(Slider slider)
     {
         audioSource.volume = slider.value;
         maxVolume = slider.value;
-        NewPlayer.Instance.soundVolume = slider.value;
+    }
+    
+    public void changeSoundVolume(Slider slider)
+    {
+        audioSource.volume = slider.value;
+        maxVolume = slider.value;
+        GameManager.Instance.audioSource.volume = slider.value;
     }
 }

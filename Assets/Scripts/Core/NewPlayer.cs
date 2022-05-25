@@ -90,7 +90,6 @@ public class NewPlayer : PhysicsObject
     public AudioClip outOfAmmoSound;
     public AudioClip stepSound;
     [System.NonSerialized] public int whichHurtSound;
-    public float soundVolume = 0.5f;
 
     void Start()
     {
@@ -439,13 +438,13 @@ public class NewPlayer : PhysicsObject
     {
         //Play a step sound at a random pitch between two floats, while also increasing the volume based on the Horizontal axis
         audioSource.pitch = (Random.Range(0.9f, 1.1f));
-        audioSource.PlayOneShot(stepSound, Mathf.Abs(Input.GetAxis("Horizontal") / 10)*soundVolume);
+        audioSource.PlayOneShot(stepSound, Mathf.Abs(Input.GetAxis("Horizontal") / 10)*GameManager.Instance.audioSource.volume);
     }
 
     public void PlayJumpSound()
     {
         audioSource.pitch = (Random.Range(1f, 1f));
-        GameManager.Instance.audioSource.PlayOneShot(jumpSound, .1f * soundVolume);
+        GameManager.Instance.audioSource.PlayOneShot(jumpSound, .1f * GameManager.Instance.audioSource.volume);
     }
 
 
@@ -453,7 +452,7 @@ public class NewPlayer : PhysicsObject
     {
         jumpParticles.Emit(1);
         audioSource.pitch = (Random.Range(0.6f, 1f));
-        audioSource.PlayOneShot(landSound,soundVolume);
+        audioSource.PlayOneShot(landSound,GameManager.Instance.audioSource.volume);
     }
 
     public void LandEffect()
@@ -462,7 +461,7 @@ public class NewPlayer : PhysicsObject
         {
             jumpParticles.Emit(1);
             audioSource.pitch = (Random.Range(0.6f, 1f));
-            audioSource.PlayOneShot(landSound, soundVolume);
+            audioSource.PlayOneShot(landSound, GameManager.Instance.audioSource.volume);
             jumping = false;
         }
     }

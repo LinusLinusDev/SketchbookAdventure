@@ -104,7 +104,7 @@ public class DialogueBoxController : MonoBehaviour
                     extendConvo = false;
                     animator.SetInteger("choiceSelection", 1);
                 }
-                audioSource.PlayOneShot(selectionSound);
+                audioSource.PlayOneShot(selectionSound, GameManager.Instance.audioSource.volume);
                 horizontalKeyIsDown = true;
             }
 
@@ -161,11 +161,11 @@ public class DialogueBoxController : MonoBehaviour
             yield return new WaitForSeconds(.1f);
             if (animator.GetInteger("choiceSelection") == 1)
             {
-                dialogueAudioSource.PlayOneShot(audioChoices[0]);
+                dialogueAudioSource.PlayOneShot(audioChoices[0], GameManager.Instance.audioSource.volume);
             }
             else
             {
-                dialogueAudioSource.PlayOneShot(audioChoices[1]);
+                dialogueAudioSource.PlayOneShot(audioChoices[1], GameManager.Instance.audioSource.volume);
             }
         }
 
@@ -235,12 +235,12 @@ public class DialogueBoxController : MonoBehaviour
             yield return new WaitForSeconds(.1f);
             if (animator.GetInteger("choiceSelection") == 1)
             {
-                dialogueAudioSource.PlayOneShot(audioChoices[0]);
+                dialogueAudioSource.PlayOneShot(audioChoices[0], GameManager.Instance.audioSource.volume);
                 yield return new WaitForSeconds(audioChoices[0].length);
             }
             else
             {
-                dialogueAudioSource.PlayOneShot(audioChoices[1]);
+                dialogueAudioSource.PlayOneShot(audioChoices[1], GameManager.Instance.audioSource.volume);
                 yield return new WaitForSeconds(audioChoices[1].length);
             }
         }
@@ -265,7 +265,7 @@ public class DialogueBoxController : MonoBehaviour
             {
                 if (audioLines[index] != null)
                 {
-                    dialogueAudioSource.PlayOneShot(audioLines[index]);
+                    dialogueAudioSource.PlayOneShot(audioLines[index], GameManager.Instance.audioSource.volume);
                 }
             }
         }
@@ -284,7 +284,7 @@ public class DialogueBoxController : MonoBehaviour
             }
 
             textMesh.text += c;
-            audioSource.PlayOneShot(typeSounds[Random.Range(0, typeSounds.Length)], Random.Range(.3f, .5f)*NewPlayer.Instance.soundVolume);
+            audioSource.PlayOneShot(typeSounds[Random.Range(0, typeSounds.Length)], Random.Range(.3f, .5f)*GameManager.Instance.audioSource.volume);
             yield return wait;
         }
     }

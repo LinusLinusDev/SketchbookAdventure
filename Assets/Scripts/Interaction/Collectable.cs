@@ -66,7 +66,7 @@ public class Collectable : MonoBehaviour
             }
         }
 
-        GameManager.Instance.audioSource.PlayOneShot(collectSounds[Random.Range(0, collectSounds.Length)], Random.Range(.6f, 1f)*NewPlayer.Instance.soundVolume);
+        GameManager.Instance.audioSource.PlayOneShot(collectSounds[Random.Range(0, collectSounds.Length)], Random.Range(.6f, 1f));
 
 
         //If my parent has an Ejector script, it means that my parent is actually what needs to be destroyed, along with me, once collected

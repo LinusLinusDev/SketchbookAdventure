@@ -39,7 +39,7 @@ public class AnimatorFunctions : MonoBehaviour
     //Play a sound through the specified audioSource
     void PlaySound(AudioClip whichSound)
     {
-        audioSource.PlayOneShot(whichSound);
+        audioSource.PlayOneShot(whichSound, GameManager.Instance.audioSource.volume);
     }
 
     public void EmitParticles(int amount)
