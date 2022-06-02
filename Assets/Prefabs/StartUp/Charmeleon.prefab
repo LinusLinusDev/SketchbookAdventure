@@ -26529,6 +26529,7 @@ MonoBehaviour:
   jumpParticles: {fileID: 1181253328755541354}
   pauseMenu: {fileID: 0}
   recoveryCounter: {fileID: 0}
+  poofSound: {fileID: 8300000, guid: eca0ace892051c843a9665620bb6d299, type: 3}
   cheatItems: []
   dead: 0
   frozen: 0
@@ -26539,7 +26540,6 @@ MonoBehaviour:
   maxSpeed: 8
   jumpPower: 17
   dashPower: 20
-  climbing: 0
   color: 0
   ammo: 0
   coins: 0
@@ -26548,6 +26548,13 @@ MonoBehaviour:
   maxAmmo: 100
   maxColor: 1000
   colorAmmo: 
+  whitePoof: {fileID: 2332922207098189120, guid: b0ed2daf08ac3d1458bc13a67a3c7af4,
+    type: 3}
+  greenPoof: {fileID: 7143484883643979374, guid: 824cbd3fe3e00774f9b174188bd5acd6,
+    type: 3}
+  bluePoof: {fileID: 7843424666066714348, guid: 47cc8c5d052cbf64d97d9518085873bb,
+    type: 3}
+  redPoof: {fileID: 5272566097662499389, guid: e5ec7f763bca1e84086c7577eb919453, type: 3}
   deathSound: {fileID: 8300000, guid: 6a78b508a5f344caf90ef54788c6d8b0, type: 3}
   equipSound: {fileID: 8300000, guid: dcdc034a174c940b5a22b2789c876245, type: 3}
   grassSound: {fileID: 8300000, guid: 27e58179389da43abaf2aa220d014dc1, type: 3}

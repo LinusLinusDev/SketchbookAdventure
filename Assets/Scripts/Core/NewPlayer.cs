@@ -27,7 +27,8 @@ public class NewPlayer : PhysicsObject
     [SerializeField] private ParticleSystem jumpParticles;
     [SerializeField] private GameObject pauseMenu;
     public RecoveryCounter recoveryCounter;
-
+    public AudioClip poofSound; 
+    
     // Singleton instantiation
     private static NewPlayer instance;
     public static NewPlayer Instance
@@ -54,7 +55,7 @@ public class NewPlayer : PhysicsObject
     public float jumpPower = 17;
     public float dashPower = 20;
     private bool jumping;
-    public bool climbing;
+    private bool climbing;
     private bool dashing;
     private bool atClimbable;
     private bool doubleJump;
@@ -75,6 +76,10 @@ public class NewPlayer : PhysicsObject
     public int maxAmmo;
     public int maxColor;
     public int[] colorAmmo;
+    public GameObject whitePoof;
+    public GameObject greenPoof;
+    public GameObject bluePoof;
+    public GameObject redPoof;
 
     [Header ("Sounds")]
     public AudioClip deathSound;
@@ -117,17 +122,16 @@ public class NewPlayer : PhysicsObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        atClimbable = true;
+        if(other.gameObject.CompareTag("Climb"))atClimbable = true;
         if (!grounded && color == 0 && other.gameObject.CompareTag("Climb"))
         {
             climbing = true;
-            colorAmmo[color] -= 100;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        atClimbable = false;
+        if(other.gameObject.CompareTag("Climb"))atClimbable = false;
         if (other.gameObject.CompareTag("Climb")) climbing = false;
     }
 
@@ -201,7 +205,7 @@ public class NewPlayer : PhysicsObject
                     climbing = false;
                     launch = -transform.localScale.x*15;
                     Jump(1f);
-                    colorAmmo[color] -= 150;
+                    colorAmmo[color] -= 200;
                 }
             }
             else
@@ -230,6 +234,7 @@ public class NewPlayer : PhysicsObject
                         colorAmmo[color] -= 100;
                         climbing = true;
                     }
+                    poof(color);
                 }
             
                 if (Input.GetKeyDown("q"))
@@ -238,28 +243,43 @@ public class NewPlayer : PhysicsObject
                     else if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
                     if (atClimbable && color == 0)
                     {
-                        colorAmmo[color] -= 100;
                         climbing = true;
                     }
+                    poof(color);
                 }
 
                 if (colorAmmo[0] < 0) colorAmmo[0] = 0;
                 else if (colorAmmo[1] < 0) colorAmmo[1] = 0;
                 else if (colorAmmo[2] < 0) colorAmmo[2] = 0;
-                
-                if (colorAmmo.All(val => val <= 0)) color = 3;
-                else if (colorAmmo[color] <= 0)color = (color + 1) % 3;
-                
-                //Cheat
-                if (Input.GetMouseButtonDown(1))
-                    colorAmmo[color] -= 200;
-                //
+
+                if (colorAmmo.All(val => val <= 0))
+                {
+                    color = 3;
+                    poof(color);
+                }
+                else if (colorAmmo[color] <= 0)
+                {
+                    color = (color + 1) % 3;
+                    if(colorAmmo[color] > 0)poof(color);
+                }
             }
             else
             {
-                if (colorAmmo[0] > 0) color = 0;
-                else if (colorAmmo[1] > 0) color = 1;
-                else if (colorAmmo[2] > 0) color = 2;
+                if (colorAmmo[0] > 0)
+                {
+                    color = 0;
+                    poof(color);
+                }
+                else if (colorAmmo[1] > 0)
+                {
+                    color = 1;
+                    poof(color);
+                }
+                else if (colorAmmo[2] > 0)
+                {
+                    color = 2;
+                    poof(color);
+                }
             }
 
             if (color != 0) climbing = false;
@@ -570,6 +590,26 @@ public class NewPlayer : PhysicsObject
         for (int i = 0; i < cheatItems.Length; i++)
         {
             GameManager.Instance.GetInventoryItem(cheatItems[i], null);
+        }
+    }
+    
+    public void poof(int color)
+    {
+        GameManager.Instance.audioSource.PlayOneShot(poofSound, 3);
+        switch (color) 
+        {
+            case 0:
+                Instantiate(greenPoof, new Vector3(transform.position.x,transform.position.y + 2,transform.position.z), Quaternion.identity);
+                break;
+            case 1:
+                Instantiate(bluePoof, new Vector3(transform.position.x,transform.position.y + 2,transform.position.z), Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(redPoof, new Vector3(transform.position.x,transform.position.y + 2,transform.position.z), Quaternion.identity);
+                break;
+            case 3:
+                Instantiate(whitePoof, new Vector3(transform.position.x,transform.position.y + 2,transform.position.z), Quaternion.identity);
+                break;
         }
     }
 }
