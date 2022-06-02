@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /*Use on any gameObject to fade in and out an audioClip. Used for things like
 ambience and music.*/
@@ -30,6 +28,8 @@ public class AudioTrigger : MonoBehaviour
     {
         audioSource.loop = loop;
 
+        if (audioSource.volume > maxVolume) audioSource.volume = maxVolume;
+        
         /*If the player isn't dead, and we either trigger or want to 
         AudioTrigger to automatically play, the audioSource will begin playing.
         */
@@ -111,18 +111,5 @@ public class AudioTrigger : MonoBehaviour
         */
         yield return new WaitForSeconds(4f);
         GetComponent<BoxCollider2D>().enabled = true;
-    }
-
-    public void changeMusicVolume(Slider slider)
-    {
-        audioSource.volume = slider.value;
-        maxVolume = slider.value;
-    }
-    
-    public void changeSoundVolume(Slider slider)
-    {
-        audioSource.volume = slider.value;
-        maxVolume = slider.value;
-        GameManager.Instance.audioSource.volume = slider.value;
     }
 }

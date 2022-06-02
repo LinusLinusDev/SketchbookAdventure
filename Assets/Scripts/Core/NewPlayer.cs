@@ -56,6 +56,7 @@ public class NewPlayer : PhysicsObject
     private bool jumping;
     public bool climbing;
     private bool dashing;
+    private bool atClimbable;
     private bool doubleJump;
     private bool dash;
     private float verticalInput;
@@ -116,6 +117,7 @@ public class NewPlayer : PhysicsObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        atClimbable = true;
         if (!grounded && color == 0 && other.gameObject.CompareTag("Climb"))
         {
             climbing = true;
@@ -125,6 +127,7 @@ public class NewPlayer : PhysicsObject
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        atClimbable = false;
         if (other.gameObject.CompareTag("Climb")) climbing = false;
     }
 
@@ -198,6 +201,7 @@ public class NewPlayer : PhysicsObject
                     climbing = false;
                     launch = -transform.localScale.x*15;
                     Jump(1f);
+                    colorAmmo[color] -= 150;
                 }
             }
             else
@@ -221,14 +225,28 @@ public class NewPlayer : PhysicsObject
                 {
                     if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
                     else if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
+                    if (atClimbable && color == 0)
+                    {
+                        colorAmmo[color] -= 100;
+                        climbing = true;
+                    }
                 }
             
                 if (Input.GetKeyDown("q"))
                 {
                     if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
                     else if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
+                    if (atClimbable && color == 0)
+                    {
+                        colorAmmo[color] -= 100;
+                        climbing = true;
+                    }
                 }
-            
+
+                if (colorAmmo[0] < 0) colorAmmo[0] = 0;
+                else if (colorAmmo[1] < 0) colorAmmo[1] = 0;
+                else if (colorAmmo[2] < 0) colorAmmo[2] = 0;
+                
                 if (colorAmmo.All(val => val <= 0)) color = 3;
                 else if (colorAmmo[color] <= 0)color = (color + 1) % 3;
                 
