@@ -6,6 +6,7 @@ using UnityEngine;
 public class TongueTip : MonoBehaviour
 {
     public GameObject anchor;
+    public GameObject line;
     public bool action;
     public bool stretch;
     public bool coll;
@@ -28,9 +29,13 @@ public class TongueTip : MonoBehaviour
         {
             transform.position = anchor.transform.position;
             stretch = true;
+            line.SetActive(false);
+            GetComponent<CircleCollider2D>().enabled = false;
         }
         else
         {
+            line.SetActive(true);
+            GetComponent<CircleCollider2D>().enabled = false;
             if (stretch)
             {
                 
