@@ -20,6 +20,7 @@ public class NewPlayer : PhysicsObject
     public GameObject attackHit;
     private CapsuleCollider2D capsuleCollider;
     public CameraEffects cameraEffects;
+    [SerializeField] private GameObject tongueTip;
     [SerializeField] private ParticleSystem deathParticles;
     [SerializeField] private AudioSource flameParticlesAudioSource;
     [SerializeField] private GameObject graphic;
@@ -27,7 +28,8 @@ public class NewPlayer : PhysicsObject
     [SerializeField] private ParticleSystem jumpParticles;
     [SerializeField] private GameObject pauseMenu;
     public RecoveryCounter recoveryCounter;
-    public AudioClip poofSound; 
+    public AudioClip poofSound;
+    public AudioClip tongueSound;
     
     // Singleton instantiation
     private static NewPlayer instance;
@@ -188,6 +190,13 @@ public class NewPlayer : PhysicsObject
                 dash = false;
                 Dash(0.7f);
             }
+            
+            // Tongue
+            if (Input.GetKeyDown(KeyCode.LeftControl) && !shooting && !dashing && !climbing &&
+                !animator.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
+            {
+                StartTongue();
+            }
 
             // Climb
             if (climbing)
@@ -215,13 +224,16 @@ public class NewPlayer : PhysicsObject
             }
             
             //Flip the graphic's localScale
-            if (move.x > 0.01f)
+            if (!shooting)
             {
-               graphic.transform.localScale = new Vector3(origLocalScale.x, transform.localScale.y, transform.localScale.z);
-            }
-            else if (move.x < -0.01f)
-            {
-               graphic.transform.localScale = new Vector3(-origLocalScale.x, transform.localScale.y, transform.localScale.z);
+                if (move.x > 0.01f)
+                {
+                    graphic.transform.localScale = new Vector3(origLocalScale.x, transform.localScale.y, transform.localScale.z);
+                }
+                else if (move.x < -0.01f)
+                {
+                    graphic.transform.localScale = new Vector3(-origLocalScale.x, transform.localScale.y, transform.localScale.z);
+                }
             }
 
             if (color != 3)
@@ -612,5 +624,19 @@ public class NewPlayer : PhysicsObject
                 Instantiate(whitePoof, new Vector3(transform.position.x,transform.position.y + 2,transform.position.z), Quaternion.identity);
                 break;
         }
+    }
+
+    public void StartTongue()
+    {
+        GameManager.Instance.audioSource.PlayOneShot(tongueSound, 0.5f);
+        animator.SetBool("mouthOpen",true);
+        tongueTip.GetComponent<TongueTip>().action = true;
+        shooting = true;
+    }
+
+    public void EndTongue()
+    {
+        animator.SetBool("mouthOpen",false);
+        shooting = false;
     }
 }

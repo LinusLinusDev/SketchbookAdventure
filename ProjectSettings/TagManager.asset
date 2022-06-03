@@ -8,6 +8,7 @@ TagManager:
   - PreventStuckOnWall
   - Startup
   - Climb
+  - TongueTip
   layers:
   - Default
   - TransparentFX
