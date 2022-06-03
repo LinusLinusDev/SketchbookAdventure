@@ -15,7 +15,7 @@ public class NewPlayer : PhysicsObject
 {
     [Header ("Reference")]
     public AudioSource audioSource;
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
     private AnimatorFunctions animatorFunctions;
     public GameObject attackHit;
     private CapsuleCollider2D capsuleCollider;
@@ -159,6 +159,7 @@ public class NewPlayer : PhysicsObject
                 {
                     launch = 0;
                     dashing = false;
+                    animator.SetBool("dash",false);
                 }
             }
             else if(dashing) velocity.y = 0;
@@ -185,7 +186,7 @@ public class NewPlayer : PhysicsObject
             {
                 colorAmmo[color] -= 200;
                 dash = false;
-                Dash(1f);
+                Dash(0.7f);
             }
 
             // Climb
@@ -193,7 +194,7 @@ public class NewPlayer : PhysicsObject
             {
                 launch = 0;
                 verticalInput = Input.GetAxis("Vertical");
-                transform.Translate(0,verticalInput*0.02f,0);
+                transform.Translate(0,verticalInput*0.01f,0);
                 if (verticalInput != 0) colorAmmo[color] -= 1;
                 velocity.y = 0;
                 gravityModifier = 0;
@@ -469,7 +470,7 @@ public class NewPlayer : PhysicsObject
         JumpEffect();
         dashing = true;
         launch = dashPower*dashMultiplier*transform.localScale.x;
-        animator.SetTrigger("dash");
+        animator.SetBool("dash",true);
     }
 
     public void PlayStepSound()
