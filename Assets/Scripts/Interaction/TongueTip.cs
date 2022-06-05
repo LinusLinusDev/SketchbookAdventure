@@ -10,6 +10,8 @@ public class TongueTip : MonoBehaviour
     public bool action;
     public bool stretch;
     public bool coll;
+    private float tongueLength;
+    public List<GameObject> collectables;
 
     private void Start()
     {
@@ -18,28 +20,29 @@ public class TongueTip : MonoBehaviour
         coll = false;
     }
 
-    private void OnCollisionStay2D(Collision2D col)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         coll = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!action)
         {
             transform.position = anchor.transform.position;
             stretch = true;
+            coll = false;
             line.SetActive(false);
-            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
         else
         {
             line.SetActive(true);
-            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = true;
+            
             if (stretch)
             {
-                
-                if (Vector2.Distance(transform.position, anchor.transform.position) >= 8 || coll)
+                if (Vector2.Distance(transform.position, anchor.transform.position) >= tongueLength || coll)
                 {
                     stretch = false;
                 }
@@ -54,8 +57,16 @@ public class TongueTip : MonoBehaviour
                     stretch = true;
                     coll = false;
                     NewPlayer.Instance.EndTongue();
+                    collectables.ForEach(x => x.GetComponent<CollectWithTongue>().CollectThis());
+                    collectables.Clear();
                 }
             }
         }
+    }
+
+    public void activate(float length)
+    {
+        action = true;
+        tongueLength = length;
     }
 }

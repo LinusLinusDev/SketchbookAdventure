@@ -26589,16 +26589,18 @@ MonoBehaviour:
   hurtLaunchPower: {x: 1, y: 1}
   launch: 0
   launchRecovery: 3
+  color: 0
   maxSpeed: 8
   jumpPower: 17
   dashPower: 20
-  color: 0
+  tongueLength: 8
+  climbingSpeed: 0.01
+  maxColor: 1000
   ammo: 0
   coins: 0
   health: 5
   maxHealth: 5
   maxAmmo: 100
-  maxColor: 1000
   colorAmmo: 
   whitePoof: {fileID: 2332922207098189120, guid: b0ed2daf08ac3d1458bc13a67a3c7af4,
     type: 3}
@@ -33098,7 +33100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4389913887545422630}
   - component: {fileID: 1140253527}
-  - component: {fileID: 6955847721507881160}
+  - component: {fileID: 1408273210}
   m_Layer: 0
   m_Name: TongueTip
   m_TagString: TongueTip
@@ -33137,8 +33139,9 @@ MonoBehaviour:
   action: 0
   stretch: 0
   coll: 0
---- !u!58 &6955847721507881160
-CircleCollider2D:
+  collectables: []
+--- !u!61 &1408273210
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -33150,9 +33153,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.000061035156, y: 0.0000009536743}
+  m_Offset: {x: -0.0053128004, y: 0.071867496}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 3.9965765, y: 1.7582386}
+  m_EdgeRadius: 0
 --- !u!1 &6063831638830600864
 GameObject:
   m_ObjectHideFlags: 0

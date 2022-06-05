@@ -53,9 +53,6 @@ public class NewPlayer : PhysicsObject
     [SerializeField] Vector2 hurtLaunchPower; //How much force should be applied to the player when getting hurt?
     public float launch; //The float added to x and y moveSpeed. This is set with hurtLaunchPower, and is always brought back to zero
     [SerializeField] private float launchRecovery; //How slow should recovering from the launch be? (Higher the number, the longer the launch will last)
-    public float maxSpeed = 7; //Max move speed
-    public float jumpPower = 17;
-    public float dashPower = 20;
     private bool jumping;
     private bool climbing;
     private bool dashing;
@@ -70,13 +67,20 @@ public class NewPlayer : PhysicsObject
     [System.NonSerialized] public bool pounding;
     [System.NonSerialized] public bool shooting = false;
 
+    [Header ("Skills")]
+    public float maxSpeed = 7;
+    public float jumpPower = 17;
+    public float dashPower = 20;
+    public float tongueLength = 8;
+    public float climbingSpeed = 0.01f;
+    public int maxColor = 1000;
+    
     [Header ("Inventory")]
     public float ammo;
     public int coins;
     public int health;
     public int maxHealth;
     public int maxAmmo;
-    public int maxColor;
     public int[] colorAmmo;
     public GameObject whitePoof;
     public GameObject greenPoof;
@@ -175,16 +179,16 @@ public class NewPlayer : PhysicsObject
             }
             
             // Doublejump
-            else if (Input.GetButtonDown("Jump") && doubleJump && color == 1 && colorAmmo[color] >= 2)
+            else if (Input.GetButtonDown("Jump") && !shooting && doubleJump && color == 1 && colorAmmo[color] >= 2)
             {
                 colorAmmo[color] -= 200;
                 doubleJump = false;
-                Jump(0.8f);
+                Jump(1f);
                 animator.SetTrigger("doubleJump");
             }
             
             // Dash
-            if (Input.GetKeyDown(KeyCode.LeftShift) && dash && color == 2 && colorAmmo[color] >= 2)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !shooting && dash && color == 2 && colorAmmo[color] >= 2)
             {
                 colorAmmo[color] -= 200;
                 dash = false;
@@ -203,7 +207,7 @@ public class NewPlayer : PhysicsObject
             {
                 launch = 0;
                 verticalInput = Input.GetAxis("Vertical");
-                transform.Translate(0,verticalInput*0.01f,0);
+                transform.Translate(0,verticalInput*climbingSpeed,0);
                 if (verticalInput != 0) colorAmmo[color] -= 1;
                 velocity.y = 0;
                 gravityModifier = 0;
@@ -630,7 +634,7 @@ public class NewPlayer : PhysicsObject
     {
         GameManager.Instance.audioSource.PlayOneShot(tongueSound, 0.5f);
         animator.SetBool("mouthOpen",true);
-        tongueTip.GetComponent<TongueTip>().action = true;
+        tongueTip.GetComponent<TongueTip>().activate(tongueLength);
         shooting = true;
     }
 
