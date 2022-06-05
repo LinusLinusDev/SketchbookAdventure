@@ -20,9 +20,9 @@ public class TongueTip : MonoBehaviour
         coll = false;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        coll = true;
+        if (other.CompareTag("Solid")) coll = true;
     }
 
     private void FixedUpdate()

@@ -54,7 +54,7 @@ public class NewPlayer : PhysicsObject
     public float launch; //The float added to x and y moveSpeed. This is set with hurtLaunchPower, and is always brought back to zero
     [SerializeField] private float launchRecovery; //How slow should recovering from the launch be? (Higher the number, the longer the launch will last)
     private bool jumping;
-    private bool climbing;
+    public bool climbing;
     private bool dashing;
     private bool atClimbable;
     private bool doubleJump;
@@ -129,7 +129,7 @@ public class NewPlayer : PhysicsObject
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Climb"))atClimbable = true;
-        if (!grounded && color == 0 && other.gameObject.CompareTag("Climb"))
+        if (!grounded && color == 0 && !shooting && other.gameObject.CompareTag("Climb"))
         {
             climbing = true;
         }
@@ -183,7 +183,7 @@ public class NewPlayer : PhysicsObject
             {
                 colorAmmo[color] -= 200;
                 doubleJump = false;
-                Jump(1f);
+                Jump(0.9f);
                 animator.SetTrigger("doubleJump");
             }
             
