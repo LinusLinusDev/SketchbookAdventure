@@ -3231,6 +3231,11 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1844477748}
+    - target: {fileID: 3457142048793212823, guid: 074ceb55e71000a4cba5908ea7b6ea67,
+        type: 3}
+      propertyPath: climbingSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 074ceb55e71000a4cba5908ea7b6ea67, type: 3}
 --- !u!1001 &1141933745
