@@ -25,7 +25,7 @@ public class TongueTip : MonoBehaviour
         if (other.CompareTag("Solid")) coll = true;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!action)
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class MenuHandler : MonoBehaviour {
 
 	[SerializeField] private string whichScene;
+    [SerializeField] private Animator hud;
 
     public void QuitGame()
     {
@@ -16,6 +18,12 @@ public class MenuHandler : MonoBehaviour {
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(whichScene);
+        hud.SetTrigger("coverScreen");
+        StartCoroutine(FinishFirst(1f));
     }
+    
+    IEnumerator FinishFirst(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(whichScene);
+    } 
 }

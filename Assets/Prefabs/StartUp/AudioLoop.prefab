@@ -137,7 +137,7 @@ MonoBehaviour:
   controlsTitle: 1
   fadeSpeed: 0.1
   loop: 1
-  sound: {fileID: 8300000, guid: 75b81a1164c2e490e9a7059fd357347c, type: 3}
+  sound: {fileID: 8300000, guid: b38fc2f279f5342658212288e06e8d43, type: 3}
   maxVolume: 0.5
 --- !u!61 &61930522809586866
 BoxCollider2D:

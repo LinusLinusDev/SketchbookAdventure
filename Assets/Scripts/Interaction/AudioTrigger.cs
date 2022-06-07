@@ -33,37 +33,30 @@ public class AudioTrigger : MonoBehaviour
         /*If the player isn't dead, and we either trigger or want to 
         AudioTrigger to automatically play, the audioSource will begin playing.
         */
-
-        if (!NewPlayer.Instance.dead)
+        
+        if (triggered || autoPlay)
         {
-            if (triggered || autoPlay)
+            if (!audioSource.isPlaying)
             {
-                if (!audioSource.isPlaying)
-                {
-                    audioSource.Play();
-                }
-
-                //Begin fading in the audioSource volume as long as it's smaller than the goToVolume
-                if (audioSource.volume < maxVolume)
-                {
-                    audioSource.volume += fadeSpeed * Time.deltaTime;
-                }
+                audioSource.Play();
             }
-            else
+
+            //Begin fading in the audioSource volume as long as it's smaller than the goToVolume
+            if (audioSource.volume < maxVolume)
             {
-                if (audioSource.volume > 0)
-                {
-                    audioSource.volume -= fadeSpeed * Time.deltaTime;
-                }
-                else
-                {
-                    audioSource.Stop();
-                }
+                audioSource.volume += fadeSpeed * Time.deltaTime;
             }
         }
         else
         {
-            audioSource.Stop();
+            if (audioSource.volume > 0)
+            {
+                audioSource.volume -= fadeSpeed * Time.deltaTime;
+            }
+            else
+            {
+                audioSource.Stop();
+            }
         }
     }
 

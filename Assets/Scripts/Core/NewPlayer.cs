@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -125,7 +126,7 @@ public class NewPlayer : PhysicsObject
     {
         ComputeVelocity();
     }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Climb"))atClimbable = true;
