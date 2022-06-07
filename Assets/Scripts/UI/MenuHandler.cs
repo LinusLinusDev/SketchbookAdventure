@@ -19,7 +19,7 @@ public class MenuHandler : MonoBehaviour {
     public void LoadScene()
     {
         hud.SetTrigger("coverScreen");
-        StartCoroutine(FinishFirst(1f));
+        StartCoroutine(FinishFirst(2f));
     }
     
     IEnumerator FinishFirst(float waitTime) {
