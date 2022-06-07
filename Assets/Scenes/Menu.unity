@@ -1198,7 +1198,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!4 &4056614508192916
 Transform:
@@ -1648,6 +1648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whichScene: Level0
+  hud: {fileID: 7113145125050120150}
 --- !u!114 &7113145125050120154
 MonoBehaviour:
   m_ObjectHideFlags: 0
