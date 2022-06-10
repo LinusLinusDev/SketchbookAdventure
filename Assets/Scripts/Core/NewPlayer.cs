@@ -57,7 +57,8 @@ public class NewPlayer : PhysicsObject
     private bool jumping;
     public bool climbing;
     private bool dashing;
-    private bool atClimbable;
+    public bool atClimbable;
+    private int collidersAtClimbable = 0;
     private bool doubleJump;
     private bool dash;
     private float verticalInput;
@@ -129,8 +130,12 @@ public class NewPlayer : PhysicsObject
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Climb"))atClimbable = true;
-        if (!grounded && color == 0 && !shooting && other.gameObject.CompareTag("Climb"))
+        if (other.gameObject.CompareTag("Climb"))
+        {
+            collidersAtClimbable++;
+            atClimbable = true;
+        }
+        if (!grounded && color == 0 && other.gameObject.CompareTag("Climb"))
         {
             climbing = true;
         }
@@ -138,8 +143,15 @@ public class NewPlayer : PhysicsObject
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Climb"))atClimbable = false;
-        if (other.gameObject.CompareTag("Climb")) climbing = false;
+        if (other.gameObject.CompareTag("Climb"))
+        {
+            collidersAtClimbable--;
+            if (collidersAtClimbable == 0)
+            {
+                atClimbable = false;
+                climbing = false;
+            }
+        }
     }
 
     protected void ComputeVelocity()
@@ -248,7 +260,7 @@ public class NewPlayer : PhysicsObject
                 {
                     if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
                     else if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
-                    if (atClimbable && color == 0)
+                    if (!grounded && atClimbable && color == 0)
                     {
                         colorAmmo[color] -= 100;
                         climbing = true;

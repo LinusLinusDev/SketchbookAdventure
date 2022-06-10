@@ -12,12 +12,15 @@ public class TongueTip : MonoBehaviour
     public bool coll;
     private float tongueLength;
     public List<GameObject> collectables;
+    private float tongueSpeed = 0.8f;
+    private NewPlayer player;
 
     private void Start()
     {
         action = false;
         stretch = true;
         coll = false;
+        player = NewPlayer.Instance;
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -46,11 +49,15 @@ public class TongueTip : MonoBehaviour
                 {
                     stretch = false;
                 }
-                else transform.Translate(0.8f,0,0);
+                else transform.Translate(tongueSpeed,0,0);
             }
             else
             {
-                transform.Translate(-0.8f, 0, 0);
+                transform.Translate(-1 * tongueSpeed, 0, 0);
+                if (!player.animator.GetBool("grounded") && coll && player.color == 0)
+                {
+                   player.transform.Translate(tongueSpeed* 5 * NewPlayer.Instance.transform.localScale.x, 0, 0);
+                }
                 if (Vector2.Distance(transform.position, anchor.transform.position) <= 0.1f)
                 {
                     action = false;
