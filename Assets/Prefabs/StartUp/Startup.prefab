@@ -1581,6 +1581,7 @@ GameObject:
   - component: {fileID: 224322363063246288}
   - component: {fileID: 222190749353454684}
   - component: {fileID: 114660244624472528}
+  - component: {fileID: 409682648}
   m_Layer: 5
   m_Name: Fader
   m_TagString: Untagged
@@ -1646,6 +1647,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!223 &409682648
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979631837854256}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 1
+  m_TargetDisplay: 0
 --- !u!1 &1465697610990669703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1680,7 @@ GameObject:
   - component: {fileID: 7225934678359410358}
   - component: {fileID: 5014292687572161762}
   m_Layer: 5
-  m_Name: RedQ
+  m_Name: RedPrev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1673,7 +1695,7 @@ RectTransform:
   m_GameObject: {fileID: 1465697610990669703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6499999, y: 0.6499999, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 224451799726430624}
   m_RootOrder: 8
@@ -1711,7 +1733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48ae834a292c4604db76c6cfc1931e02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b90b0f1b08a7a404d96086c42722ce21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1733,7 +1755,7 @@ GameObject:
   - component: {fileID: 6198663057724203499}
   - component: {fileID: 341115786435448088}
   m_Layer: 5
-  m_Name: RedE
+  m_Name: RedNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1748,7 +1770,7 @@ RectTransform:
   m_GameObject: {fileID: 6975574850536716639}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6499999, y: 0.6499999, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 224451799726430624}
   m_RootOrder: 7
@@ -1786,7 +1808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75f1c4f443e441a4585705bb1e8524a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58734d68f081e43a2b5ed06bb95c6bba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2607,7 +2629,7 @@ GameObject:
   - component: {fileID: 6718298949328139262}
   - component: {fileID: 2135184301176370221}
   m_Layer: 5
-  m_Name: GreenQ
+  m_Name: GreenPrev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2622,7 +2644,7 @@ RectTransform:
   m_GameObject: {fileID: 7679919761755821065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6499922, y: 0.6499922, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 224451799726430624}
   m_RootOrder: 5
@@ -2660,7 +2682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48ae834a292c4604db76c6cfc1931e02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b90b0f1b08a7a404d96086c42722ce21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2682,7 +2704,7 @@ GameObject:
   - component: {fileID: 110260550861947960}
   - component: {fileID: 1736789128249184210}
   m_Layer: 5
-  m_Name: BlueQ
+  m_Name: BluePrev
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2697,7 +2719,7 @@ RectTransform:
   m_GameObject: {fileID: 7753229553368639643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6499999, y: 0.6499999, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 224451799726430624}
   m_RootOrder: 2
@@ -2735,7 +2757,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48ae834a292c4604db76c6cfc1931e02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b90b0f1b08a7a404d96086c42722ce21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2757,7 +2779,7 @@ GameObject:
   - component: {fileID: 8225695689375465802}
   - component: {fileID: 1147578568069727616}
   m_Layer: 5
-  m_Name: BlueE
+  m_Name: BlueNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2772,7 +2794,7 @@ RectTransform:
   m_GameObject: {fileID: 7909293912819702991}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6499999, y: 0.6499999, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 224451799726430624}
   m_RootOrder: 1
@@ -2810,7 +2832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75f1c4f443e441a4585705bb1e8524a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58734d68f081e43a2b5ed06bb95c6bba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2832,7 +2854,7 @@ GameObject:
   - component: {fileID: 313928193877322372}
   - component: {fileID: 6608060015468205992}
   m_Layer: 5
-  m_Name: GreenE
+  m_Name: GreenNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2847,7 +2869,7 @@ RectTransform:
   m_GameObject: {fileID: 8877126673656023497}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6499922, y: 0.6499922, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 224451799726430624}
   m_RootOrder: 4
@@ -2885,7 +2907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75f1c4f443e441a4585705bb1e8524a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58734d68f081e43a2b5ed06bb95c6bba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

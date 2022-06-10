@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] AudioClip pressSound;
     [SerializeField] AudioClip openSound;
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] private Animator hud;
 
     // Use this for initialization
     void OnEnable()
@@ -30,12 +30,24 @@ public class PauseMenu : MonoBehaviour
     public void Quit()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        hud.SetTrigger("coverScreen");
+        StartCoroutine(LoadMenu(2f));
     }
 
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        hud.SetTrigger("coverScreen");
+        StartCoroutine(LoadThis(2f));
     }
+    
+    IEnumerator LoadMenu(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene("Menu");
+    } 
+    
+    IEnumerator LoadThis(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    } 
 }

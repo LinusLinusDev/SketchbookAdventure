@@ -16,14 +16,20 @@ public class MenuHandler : MonoBehaviour {
         Application.Quit();
     }
 
+    public void LoadScene(string scene)
+    {
+        hud.SetTrigger("coverScreen");
+        StartCoroutine(FinishFirst(2f, scene));
+    }
+
     public void LoadScene()
     {
         hud.SetTrigger("coverScreen");
-        StartCoroutine(FinishFirst(2f));
+        StartCoroutine(FinishFirst(2f, whichScene));
     }
     
-    IEnumerator FinishFirst(float waitTime) {
+    IEnumerator FinishFirst(float waitTime, string scene) {
         yield return new WaitForSeconds(waitTime);
-        SceneManager.LoadScene(whichScene);
+        SceneManager.LoadScene(scene);
     } 
 }

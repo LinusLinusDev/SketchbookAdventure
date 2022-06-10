@@ -106,7 +106,7 @@ public class NewPlayer : PhysicsObject
 
     void Start()
     {
-        //Cursor.visible = false;
+        Cursor.visible = false;
         rdb = GetComponent<Rigidbody2D>();
         SetUpCheatItems();
         health = maxHealth;
@@ -153,10 +153,11 @@ public class NewPlayer : PhysicsObject
 
         if (Input.GetButtonDown("Cancel"))
         {
-            pauseMenu.SetActive(true);
+            if (!pauseMenu.activeInHierarchy) pauseMenu.SetActive(true);
+            else pauseMenu.GetComponent<PauseMenu>().Unpause();
         }
 
-        if (!frozen)
+        if (!frozen && !pauseMenu.activeInHierarchy)
         {
             // Move   
             if (math.abs(launch) < 0.6f)
@@ -197,7 +198,7 @@ public class NewPlayer : PhysicsObject
             }
             
             // Tongue
-            if (Input.GetKeyDown(KeyCode.LeftControl) && !shooting && !dashing && !climbing &&
+            if ((Input.GetKeyDown(KeyCode.LeftControl) || Input.GetMouseButtonDown(2)) && !shooting && !dashing && !climbing &&
                 !animator.GetCurrentAnimatorStateInfo(0).IsName("DoubleJump"))
             {
                 StartTongue();
@@ -243,7 +244,7 @@ public class NewPlayer : PhysicsObject
 
             if (color != 3)
             {
-                if (Input.GetKeyDown("e"))    
+                if (Input.GetKeyDown("e") || Input.GetMouseButtonDown(1))    
                 {
                     if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
                     else if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
@@ -255,7 +256,7 @@ public class NewPlayer : PhysicsObject
                     poof(color);
                 }
             
-                if (Input.GetKeyDown("q"))
+                if (Input.GetKeyDown("q") || Input.GetMouseButtonDown(0))
                 {
                     if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
                     else if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;

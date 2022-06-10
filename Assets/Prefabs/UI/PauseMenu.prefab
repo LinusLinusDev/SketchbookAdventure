@@ -673,7 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pressSound: {fileID: 8300000, guid: 0b9ead35480c34b73aa5ac9d276aeddc, type: 3}
   openSound: {fileID: 8300000, guid: 3838923b1081744079ee5823647ba269, type: 3}
-  pauseMenu: {fileID: 0}
+  hud: {fileID: 0}
 --- !u!1 &33971683870395140
 GameObject:
   m_ObjectHideFlags: 0
