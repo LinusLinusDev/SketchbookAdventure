@@ -195,6 +195,7 @@ public class NewPlayer : PhysicsObject
             // Doublejump
             else if (Input.GetButtonDown("Jump") && !shooting && doubleJump && color == 1 && colorAmmo[color] >= 2)
             {
+                poof(1);
                 colorAmmo[color] -= 200;
                 doubleJump = false;
                 Jump(0.9f);
@@ -204,6 +205,7 @@ public class NewPlayer : PhysicsObject
             // Dash
             if (Input.GetKeyDown(KeyCode.LeftShift) && !shooting && dash && color == 2 && colorAmmo[color] >= 2)
             {
+                poof(2);
                 colorAmmo[color] -= 200;
                 dash = false;
                 Dash(0.7f);
@@ -230,6 +232,7 @@ public class NewPlayer : PhysicsObject
                 if ((transform.localScale.x > 0 && horizontalInput < 0) || (transform.localScale.x < 0 && horizontalInput > 0)) climbing = false;
                 if (Input.GetButtonDown("Jump"))
                 {
+                    poof(0);
                     climbing = false;
                     launch = -transform.localScale.x*15;
                     Jump(1f);
