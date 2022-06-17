@@ -61,8 +61,10 @@ public class Collectable : MonoBehaviour
         {
             if (NewPlayer.Instance.ammo < NewPlayer.Instance.maxAmmo)
             {
-                GameManager.Instance.hud.HealthBarHurt();
-                NewPlayer.Instance.ammo += itemAmount;
+                Butterfly bf = GetComponent<Butterfly>();
+                if (NewPlayer.Instance.colorAmmo[bf.color] + bf.amount >= NewPlayer.Instance.maxColor)
+                    NewPlayer.Instance.colorAmmo[bf.color] = NewPlayer.Instance.maxColor;
+                else NewPlayer.Instance.colorAmmo[bf.color] += bf.amount;
             }
         }
 
