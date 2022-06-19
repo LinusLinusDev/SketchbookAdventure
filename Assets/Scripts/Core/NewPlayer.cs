@@ -110,9 +110,8 @@ public class NewPlayer : PhysicsObject
         Cursor.visible = false;
         rdb = GetComponent<Rigidbody2D>();
         SetUpCheatItems();
+        if (!(colorAmmo is {Length: 3})) colorAmmo = new[] {maxColor, maxColor, maxColor};
         health = maxHealth;
-        colorAmmo = new int[3];
-        for (int i = 0; i < colorAmmo.Length; i++) colorAmmo[i] = maxColor;
         animatorFunctions = GetComponent<AnimatorFunctions>();
         origLocalScale = transform.localScale;
         recoveryCounter = GetComponent<RecoveryCounter>();
