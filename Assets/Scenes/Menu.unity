@@ -5860,6 +5860,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScribbleFly (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6014281793835442065, guid: bb0ee33b7b756404abb9991fc5ef4d21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb0ee33b7b756404abb9991fc5ef4d21, type: 3}
 --- !u!1001 &2016293961
@@ -5958,6 +5963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ScribbleFly
+      objectReference: {fileID: 0}
+    - target: {fileID: 6014281793835442065, guid: bb0ee33b7b756404abb9991fc5ef4d21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb0ee33b7b756404abb9991fc5ef4d21, type: 3}
