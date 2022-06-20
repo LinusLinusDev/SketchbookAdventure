@@ -149,6 +149,7 @@ public class NewPlayer : PhysicsObject
             {
                 atClimbable = false;
                 climbing = false;
+                if(verticalInput > 0) Jump(0.8f);
             }
         }
     }
