@@ -63,7 +63,7 @@ public class NewPlayer : PhysicsObject
     private bool dash;
     private float verticalInput;
     private float horizontalInput;
-    public int color = 0;
+    public int color;
     private Vector3 origLocalScale;
     [System.NonSerialized] public bool pounded;
     [System.NonSerialized] public bool pounding;
@@ -111,6 +111,10 @@ public class NewPlayer : PhysicsObject
         rdb = GetComponent<Rigidbody2D>();
         SetUpCheatItems();
         if (!(colorAmmo is {Length: 3})) colorAmmo = new[] {maxColor, maxColor, maxColor};
+        if (colorAmmo[0] > 0) color = 0;
+        else if (colorAmmo[1] > 0) color = 1;
+        else if (colorAmmo[2] > 0) color = 2;
+        else color = 3;
         health = maxHealth;
         animatorFunctions = GetComponent<AnimatorFunctions>();
         origLocalScale = transform.localScale;
@@ -147,9 +151,9 @@ public class NewPlayer : PhysicsObject
             collidersAtClimbable--;
             if (collidersAtClimbable == 0)
             {
+                if(verticalInput > 0 && climbing) Jump(0.8f);
                 atClimbable = false;
                 climbing = false;
-                if(verticalInput > 0) Jump(0.8f);
             }
         }
     }
@@ -259,8 +263,9 @@ public class NewPlayer : PhysicsObject
 
             if (color != 3)
             {
-                if (Input.GetKeyDown("e") || Input.GetMouseButtonDown(1))    
+                if (Input.GetKeyDown("e") || Input.GetMouseButtonDown(1))
                 {
+                    int prevColor = color;
                     if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
                     else if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
                     if (!grounded && atClimbable && color == 0)
@@ -268,18 +273,19 @@ public class NewPlayer : PhysicsObject
                         colorAmmo[color] -= 100;
                         climbing = true;
                     }
-                    poof(color);
+                    if(color != prevColor)poof(color);
                 }
             
                 if (Input.GetKeyDown("q") || Input.GetMouseButtonDown(0))
                 {
+                    int prevColor = color;
                     if(colorAmmo[(color + 2) % 3] > 0)color = (color + 2) % 3;
                     else if(colorAmmo[(color + 1) % 3] > 0)color = (color + 1) % 3;
                     if (atClimbable && color == 0)
                     {
                         climbing = true;
                     }
-                    poof(color);
+                    if(color != prevColor)poof(color);
                 }
 
                 if (colorAmmo[0] < 0) colorAmmo[0] = 0;
@@ -629,7 +635,7 @@ public class NewPlayer : PhysicsObject
     
     public void poof(int color)
     {
-        if(Time.time > 1) GameManager.Instance.audioSource.PlayOneShot(poofSound, 3);
+        GameManager.Instance.audioSource.PlayOneShot(poofSound, 3);
         switch (color) 
         {
             case 0:

@@ -26590,12 +26590,13 @@ MonoBehaviour:
   launch: 0
   launchRecovery: 3
   climbing: 0
+  atClimbable: 0
   color: 0
   maxSpeed: 8
   jumpPower: 17
   dashPower: 20
   tongueLength: 8
-  climbingSpeed: 0.03
+  climbingSpeed: 0.05
   maxColor: 1000
   ammo: 0
   coins: 0

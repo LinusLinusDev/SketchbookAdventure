@@ -43,11 +43,11 @@ public class HUD : MonoBehaviour
         healthBarWidth = 1;
         healthBarWidthEased = healthBarWidth;
         redBarWidth = 1;
-        redBarWidthEased = redBarWidth;
+        redBarWidthEased = 0;
         greenBarWidth = 1;
-        greenBarWidthEased = greenBarWidth;
+        greenBarWidthEased = 0;
         blueBarWidth = 1;
-        blueBarWidthEased = blueBarWidth;
+        blueBarWidthEased = 0;
         ammoBarWidth = 1;
         ammoBarWidthEased = ammoBarWidth;
         coins = (float)NewPlayer.Instance.coins;

@@ -18,12 +18,12 @@ public class VerticalPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (Input.GetKeyUp(KeyCode.S))
+            if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
             {
                 waitTime = 0.5f;
             }
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 if (waitTime <= 0)
                 {
