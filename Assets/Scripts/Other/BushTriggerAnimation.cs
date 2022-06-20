@@ -15,7 +15,7 @@ public class BushTriggerAnimation : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (sr.sortingLayerName == "Layer0Before" || sr.sortingLayerName == "Layer0Behind")
+        if ((sr.sortingLayerName == "Layer0Before" || sr.sortingLayerName == "Layer0Behind") && (other.CompareTag("Player") || other.CompareTag("TongueTip")))
         {
             bushAnimator.SetTrigger("Shake");
             if (sound != null && Random.Range(1, 3) == 1)
@@ -27,7 +27,7 @@ public class BushTriggerAnimation : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (sr.sortingLayerName == "Layer0Before" || sr.sortingLayerName == "Layer0Behind")
+        if ((sr.sortingLayerName == "Layer0Before" || sr.sortingLayerName == "Layer0Behind") && (other.CompareTag("Player") || other.CompareTag("TongueTip")))  
         {
             bushAnimator.SetTrigger("Shake");
         }

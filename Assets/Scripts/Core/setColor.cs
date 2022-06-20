@@ -7,13 +7,12 @@ public class setColor : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        playerScript = GameObject.FindWithTag("Player").GetComponent<NewPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (playerScript.color)
+        switch (NewPlayer.Instance.color)
         {
             case 0:
                 sr.color = new Color(0.25f, 0.7f, 0.25f, 1);

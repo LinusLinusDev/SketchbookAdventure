@@ -149,6 +149,7 @@ public class NewPlayer : PhysicsObject
             {
                 atClimbable = false;
                 climbing = false;
+                if(verticalInput > 0) Jump(0.8f);
             }
         }
     }
@@ -628,7 +629,7 @@ public class NewPlayer : PhysicsObject
     
     public void poof(int color)
     {
-        GameManager.Instance.audioSource.PlayOneShot(poofSound, 3);
+        if(Time.time > 1) GameManager.Instance.audioSource.PlayOneShot(poofSound, 3);
         switch (color) 
         {
             case 0:
