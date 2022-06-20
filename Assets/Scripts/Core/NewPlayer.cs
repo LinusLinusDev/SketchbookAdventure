@@ -56,7 +56,7 @@ public class NewPlayer : PhysicsObject
     [SerializeField] private float launchRecovery; //How slow should recovering from the launch be? (Higher the number, the longer the launch will last)
     private bool jumping;
     public bool climbing;
-    private bool dashing;
+    public bool dashing;
     public bool atClimbable;
     private int collidersAtClimbable = 0;
     private bool doubleJump;
