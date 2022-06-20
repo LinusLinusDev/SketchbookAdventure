@@ -628,7 +628,7 @@ public class NewPlayer : PhysicsObject
     
     public void poof(int color)
     {
-        GameManager.Instance.audioSource.PlayOneShot(poofSound, 3);
+        if(Time.time > 1) GameManager.Instance.audioSource.PlayOneShot(poofSound, 3);
         switch (color) 
         {
             case 0:
