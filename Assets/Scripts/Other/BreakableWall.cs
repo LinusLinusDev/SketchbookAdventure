@@ -9,6 +9,7 @@ public class BreakableWall : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player") && NewPlayer.Instance.dashing)
         {
+            GetComponent<AudioSource>().Play();
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<Animator>().SetTrigger("Break");
         }
