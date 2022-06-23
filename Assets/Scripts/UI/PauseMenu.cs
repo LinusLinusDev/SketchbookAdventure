@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] AudioClip openSound;
     [SerializeField] private Animator hud;
 
+    private bool canUnpause = true;
+    
     // Use this for initialization
     void OnEnable()
     {
@@ -21,14 +23,18 @@ public class PauseMenu : MonoBehaviour
 
     public void Unpause()
     {
-        Cursor.visible = false;
-        gameObject.SetActive(false);
-        GameManager.Instance.audioSource.PlayOneShot(openSound);
-        Time.timeScale = 1f;
+        if (canUnpause)
+        {
+            Cursor.visible = false;
+            gameObject.SetActive(false);
+            GameManager.Instance.audioSource.PlayOneShot(openSound);
+            Time.timeScale = 1f;
+        }
     }
 
     public void Quit()
     {
+        canUnpause = false;
         Time.timeScale = 1f;
         hud.SetTrigger("coverScreen");
         StartCoroutine(LoadMenu(2f));
@@ -36,6 +42,7 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        canUnpause = false;
         NewPlayer.Instance.sesVal.deleteCheckpoint();
         NewPlayer.Instance.Freeze(true);
         Time.timeScale = 1f;
@@ -45,6 +52,7 @@ public class PauseMenu : MonoBehaviour
     
     public void LastCheckpoint()
     {
+        canUnpause = false;
         NewPlayer.Instance.Freeze(true);
         Time.timeScale = 1f;
         hud.SetTrigger("coverScreen");

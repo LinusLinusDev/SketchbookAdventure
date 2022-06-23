@@ -26598,7 +26598,7 @@ MonoBehaviour:
   jumpPower: 17
   dashPower: 20
   tongueLength: 8
-  climbingSpeed: 0.01
+  climbingSpeed: 0.03
   maxColor: 1000
   ammo: 0
   coins: 0
