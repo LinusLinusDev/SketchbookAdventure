@@ -36,6 +36,16 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        NewPlayer.Instance.sesVal.deleteCheckpoint();
+        NewPlayer.Instance.Freeze(true);
+        Time.timeScale = 1f;
+        hud.SetTrigger("coverScreen");
+        StartCoroutine(LoadThis(2f));
+    }
+    
+    public void LastCheckpoint()
+    {
+        NewPlayer.Instance.Freeze(true);
         Time.timeScale = 1f;
         hud.SetTrigger("coverScreen");
         StartCoroutine(LoadThis(2f));

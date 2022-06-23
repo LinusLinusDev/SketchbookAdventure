@@ -10,6 +10,12 @@ public class MenuHandler : MonoBehaviour {
 
 	[SerializeField] private string whichScene;
     [SerializeField] private Animator hud;
+    [SerializeField] private SessionValues sv;
+
+    private void Start()
+    {
+        sv.deleteCheckpoint();
+    }
 
     public void QuitGame()
     {

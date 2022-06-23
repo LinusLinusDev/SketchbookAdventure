@@ -14,6 +14,7 @@ using Random = UnityEngine.Random;
 
 public class NewPlayer : PhysicsObject
 {
+    public SessionValues sesVal;
     [Header ("Reference")]
     public AudioSource audioSource;
     [SerializeField] public Animator animator;
@@ -110,7 +111,16 @@ public class NewPlayer : PhysicsObject
         Cursor.visible = false;
         rdb = GetComponent<Rigidbody2D>();
         SetUpCheatItems();
-        if (!(colorAmmo is {Length: 3})) colorAmmo = new[] {maxColor, maxColor, maxColor};
+        if ( sesVal.spawnCoins[0] == -1 && sesVal.spawnColorAmmo[0] == -1)
+        {
+            if (!(colorAmmo is {Length: 3})) colorAmmo = new[] {maxColor, maxColor, maxColor};
+        }
+        else
+        {
+            transform.position = new Vector3(sesVal.spawnLocation[0], sesVal.spawnLocation[1], sesVal.spawnLocation[2]);
+            colorAmmo = new[] {sesVal.spawnColorAmmo[0], sesVal.spawnColorAmmo[1], sesVal.spawnColorAmmo[2]};
+            coins = sesVal.spawnCoins[0];
+        }
         if (colorAmmo[0] > 0) color = 0;
         else if (colorAmmo[1] > 0) color = 1;
         else if (colorAmmo[2] > 0) color = 2;
@@ -142,6 +152,7 @@ public class NewPlayer : PhysicsObject
         {
             climbing = true;
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -420,15 +431,6 @@ public class NewPlayer : PhysicsObject
             launch = hurtDirection * (hurtLaunchPower.x);
             recoveryCounter.counter = 0;
 
-            if (health <= 0)
-            {
-                StartCoroutine(Die());
-            }
-            else
-            {
-                health -= hitPower;
-            }
-
             GameManager.Instance.hud.HealthBarHurt();
         }
     }
@@ -456,24 +458,7 @@ public class NewPlayer : PhysicsObject
         yield return new WaitForSeconds(length);
         Time.timeScale = 1f;
     }
-
-
-    public IEnumerator Die()
-    {
-        if (!frozen)
-        {
-            dead = true;
-            deathParticles.Emit(10);
-            GameManager.Instance.audioSource.PlayOneShot(deathSound);
-            Hide(true);
-            Time.timeScale = .6f;
-            yield return new WaitForSeconds(5f);
-            GameManager.Instance.hud.animator.SetTrigger("coverScreen");
-            GameManager.Instance.hud.loadSceneName = SceneManager.GetActiveScene().name;
-            Time.timeScale = 1f;
-        }
-    }
-
+    
     public void ResetLevel()
     {
         Freeze(true);

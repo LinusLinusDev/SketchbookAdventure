@@ -10,6 +10,7 @@ TagManager:
   - Climb
   - TongueTip
   - Solid
+  - HUD
   layers:
   - Default
   - TransparentFX
