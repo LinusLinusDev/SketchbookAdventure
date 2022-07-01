@@ -15,6 +15,7 @@ public class MenuHandler : MonoBehaviour {
     [SerializeField] private GameObject submenu;
     [SerializeField] private GameObject mainmenu;
     [SerializeField] private GameObject credits;
+    [SerializeField] private GameObject levelSel;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class MenuHandler : MonoBehaviour {
 
     public void QuitGame()
     {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
         Application.Quit();
     }
 
@@ -34,6 +36,7 @@ public class MenuHandler : MonoBehaviour {
 
     public void LoadScene()
     {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
         hud.SetTrigger("coverScreen");
         StartCoroutine(FinishFirst(2f, whichScene));
     }
@@ -48,6 +51,20 @@ public class MenuHandler : MonoBehaviour {
         GameManager.Instance.audioSource.PlayOneShot(openSound);
         submenu.SetActive(true);
         mainmenu.SetActive(false);
+    }
+    
+    public void GoToLevelSel()
+    {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
+        levelSel.SetActive(true);
+        mainmenu.SetActive(false);
+    }
+    
+    public void CloseLevelSel()
+    {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
+        mainmenu.SetActive(true);
+        levelSel.SetActive(false);
     }
     
     public void BackToMain()
