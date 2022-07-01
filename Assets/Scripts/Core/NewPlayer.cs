@@ -45,6 +45,7 @@ public class NewPlayer : PhysicsObject
     }
 
     [Header("Properties")] private Rigidbody2D rdb;
+    public bool consumeColor = true;
     [SerializeField] private string[] cheatItems;
     public bool dead = false;
     public bool frozen = false;
@@ -211,7 +212,7 @@ public class NewPlayer : PhysicsObject
             else if (Input.GetButtonDown("Jump") && !shooting && doubleJump && color == 1 && colorAmmo[color] >= 2)
             {
                 poof(1);
-                colorAmmo[color] -= 200;
+                if(consumeColor) colorAmmo[color] -= 200;
                 doubleJump = false;
                 Jump(0.9f);
                 animator.SetTrigger("doubleJump");
@@ -221,7 +222,7 @@ public class NewPlayer : PhysicsObject
             if (Input.GetKeyDown(KeyCode.LeftShift) && !shooting && dash && color == 2 && colorAmmo[color] >= 2)
             {
                 poof(2);
-                colorAmmo[color] -= 200;
+                if(consumeColor) colorAmmo[color] -= 200;
                 dash = false;
                 Dash(0.7f);
             }
@@ -239,7 +240,7 @@ public class NewPlayer : PhysicsObject
                 launch = 0;
                 verticalInput = Input.GetAxis("Vertical");
                 transform.Translate(0,verticalInput*climbingSpeed,0);
-                if (verticalInput != 0) colorAmmo[color] -= 1;
+                if (verticalInput != 0 && consumeColor) colorAmmo[color] -= 2;
                 velocity.y = 0;
                 gravityModifier = 0;
                 doubleJump = true;
@@ -251,7 +252,7 @@ public class NewPlayer : PhysicsObject
                     climbing = false;
                     launch = -transform.localScale.x*15;
                     Jump(1f);
-                    colorAmmo[color] -= 200;
+                    if(consumeColor) colorAmmo[color] -= 200;
                 }
             }
             else

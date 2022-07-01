@@ -36,6 +36,7 @@ public class CheckpointSktipt : MonoBehaviour
                 GameManager.Instance.audioSource.PlayOneShot(splashSound, 0.7f);
                 GameManager.Instance.audioSource.PlayOneShot(checkpointSound, 0.2f);
                 GetComponent<Animator>().SetTrigger("Splash");
+                player.consumeColor = true;
                 player.colorAmmo[0] = green;
                 player.colorAmmo[1] = blue;
                 player.colorAmmo[2] = red;
