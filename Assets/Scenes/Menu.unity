@@ -8704,7 +8704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 786.16486, y: -1130}
+  m_AnchoredPosition: {x: 786.16486, y: -1279}
   m_SizeDelta: {x: 766.4154, y: 775.4196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944019910
@@ -8744,7 +8744,7 @@ MonoBehaviour:
     Palm  as part of the course\n\"Game Design\" at the FH Aachen.\n\nConcept\nJasmina
     Meier\nAlina Schumacher\nLinus Palm\n\nWorld Sprites\nJasmina Meier\n\nCharacter
     Sprites\nAlina Schumacher\n\nProgramming\nLinus Palm\n\nAnimations\nJasmina Meier\nAlina
-    Schumacher\nLinus Palm\n\nLevel Design\nJasmina Meier\nAlina Schumacher\nLinus
+    Schumacher\nLinus Palm\n\nLevel Design\nJasmina Meier\n\nQuality Assurance\nLinus
     Palm\n\nSound Effects\nLinus Palm\n\nMusic\nLinus Palm\n\nTesting\nJasmina Meier\nAlina
     Schumacher\nLinus Palm\nChristian Spillmann\nTugay Adakli\nTobias Richter\n\nSources\n\nMusic\nbensound.com\n\nSound
     Effects\nkenney.nl\n\ncreated with Unity \nVersion 20.3.33f1"
