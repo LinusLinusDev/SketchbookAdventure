@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 /*Allows buttons to fire various functions, like QuitGame and LoadScene*/
 
 public class MenuHandler : MonoBehaviour {
-
-	[SerializeField] private string whichScene;
+    
     [SerializeField] private Animator hud;
     [SerializeField] private SessionValues sv;
     [SerializeField] AudioClip openSound;
@@ -28,17 +27,25 @@ public class MenuHandler : MonoBehaviour {
         Application.Quit();
     }
 
-    public void LoadScene(string scene)
-    {
-        hud.SetTrigger("coverScreen");
-        StartCoroutine(FinishFirst(2f, scene));
-    }
-
-    public void LoadScene()
+    public void LoadTutorial()
     {
         GameManager.Instance.audioSource.PlayOneShot(openSound);
         hud.SetTrigger("coverScreen");
-        StartCoroutine(FinishFirst(2f, whichScene));
+        StartCoroutine(FinishFirst(2f, "Tutorial"));
+    }
+    
+    public void LoadLevel1()
+    {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
+        hud.SetTrigger("coverScreen");
+        StartCoroutine(FinishFirst(2f, "Level1"));
+    }
+    
+    public void LoadLevel2()
+    {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
+        hud.SetTrigger("coverScreen");
+        StartCoroutine(FinishFirst(2f, "Level2"));
     }
     
     IEnumerator FinishFirst(float waitTime, string scene) {

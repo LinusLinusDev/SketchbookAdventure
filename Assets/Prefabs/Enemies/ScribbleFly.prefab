@@ -174,7 +174,7 @@ MonoBehaviour:
   bombCounterMax: 5
   attentionRange: 8
   lifeSpan: 0
-  speedMultiplier: 4
+  speedMultiplier: 0
   shootsBomb: 1
   targetOffset: {x: 0, y: 5}
 --- !u!114 &9052724354714073262
@@ -10340,7 +10340,7 @@ MonoBehaviour:
   startCollisionDelay: 0
   parent: {fileID: 6013483506746269299}
   isBomb: 0
-  hitPower: 1
+  hitPower: 100
 --- !u!50 &6035238338783334681
 Rigidbody2D:
   serializedVersion: 4
@@ -10379,7 +10379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6015909275304277715
 Transform:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*The functionality for flying enemies*/
 
-public class Flyer : MonoBehaviour
+public class Bomb : MonoBehaviour
 {
 
     [Header ("References")]
@@ -60,14 +60,10 @@ public class Flyer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NewPlayer.Instance.transform.position.x > transform.position.x)
-            transform.localScale = new Vector3(-1, 1, 1);
-        else 
-            transform.localScale = new Vector3(1, 1, 1);
         distanceFromPlayer.x = (NewPlayer.Instance.transform.position.x + targetOffset.x) - transform.position.x;
         distanceFromPlayer.y = (NewPlayer.Instance.transform.position.y + targetOffset.y) - transform.position.y;
         speedEased += (speed - speedEased) * Time.deltaTime * easing;
-        //transform.position += speedEased * Time.deltaTime;
+        transform.position += speedEased * Time.deltaTime;
 
         if (Mathf.Abs(distanceFromPlayer.x) <= attentionRange && Mathf.Abs(distanceFromPlayer.y) <= attentionRange || lookAtTarget != null)
         {

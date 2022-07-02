@@ -425,14 +425,22 @@ public class NewPlayer : PhysicsObject
         //If the player is not frozen (ie talking, spawning, etc), recovering, and pounding, get hurt!
         if (!frozen && !recoveryCounter.recovering && !pounding)
         {
+            poof(color);
             HurtEffect();
             cameraEffects.Shake(100, 1);
             animator.SetTrigger("hurt");
+            FlashEffect();
             velocity.y = hurtLaunchPower.y;
             launch = hurtDirection * (hurtLaunchPower.x);
             recoveryCounter.counter = 0;
 
-            GameManager.Instance.hud.HealthBarHurt();
+            if (color == 3) ; //die code here
+            else
+            {
+                if (colorAmmo[color] > hitPower)
+                    colorAmmo[color] -= hitPower;
+                else colorAmmo[color] = 0;
+            }
         }
     }
 

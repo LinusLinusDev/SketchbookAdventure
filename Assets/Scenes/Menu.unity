@@ -626,7 +626,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 137621320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7113145125050120153}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: LoadLevel1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &137621320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5300,7 +5312,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7113145125050120153}
         m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6683,7 +6695,7 @@ GameObject:
   - component: {fileID: 1564936678}
   - component: {fileID: 1564936677}
   m_Layer: 5
-  m_Name: LEVEL 2
+  m_Name: Level 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6752,7 +6764,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1564936678}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7113145125050120153}
+        m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
+        m_MethodName: LoadLevel2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1564936678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9327,7 +9351,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7113145125050120153}
         m_TargetAssemblyTypeName: MenuHandler, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10080,7 +10104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70fa67dafa60a44f4afe0f404dcf5cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whichScene: Tutorial
   hud: {fileID: 7113145125050120150}
   sv: {fileID: 11400000, guid: f2c0f4ec1aa939a4a9bf0e1996beb150, type: 2}
   openSound: {fileID: 8300000, guid: 3838923b1081744079ee5823647ba269, type: 3}
