@@ -64,7 +64,7 @@ public class NewPlayer : PhysicsObject
     private bool doubleJump;
     private bool dash;
     private float verticalInput;
-    private float horizontalInput;
+    public float horizontalInput;
     public int color;
     private Vector3 origLocalScale;
     [System.NonSerialized] public bool pounded;

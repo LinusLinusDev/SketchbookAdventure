@@ -26,7 +26,7 @@ public class VerticalPlatform : MonoBehaviour
 
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                if (waitTime <= 0)
+                if (waitTime <= 0 && NewPlayer.Instance.horizontalInput == 0)
                 {
                     collision.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
                     collision.gameObject.GetComponent<NewPlayer>().animator.SetTrigger("fallThrough");
@@ -43,7 +43,7 @@ public class VerticalPlatform : MonoBehaviour
 
     private IEnumerator EnableCollider(Collision2D collision)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.25f);
         collision.gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 }

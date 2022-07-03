@@ -28397,6 +28397,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground3
       objectReference: {fileID: 0}
+    - target: {fileID: 3639621721837911244, guid: d51d6f02fff38dc4fb962ff3031142c6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d51d6f02fff38dc4fb962ff3031142c6, type: 3}
 --- !u!1001 &1360439630
@@ -35314,6 +35319,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground3 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639621721837911244, guid: d51d6f02fff38dc4fb962ff3031142c6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 37.278873
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639621721837911244, guid: d51d6f02fff38dc4fb962ff3031142c6,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.8405628
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d51d6f02fff38dc4fb962ff3031142c6, type: 3}
