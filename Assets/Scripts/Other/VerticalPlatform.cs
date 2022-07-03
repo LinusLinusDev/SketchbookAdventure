@@ -7,11 +7,12 @@ public class VerticalPlatform : MonoBehaviour
 {
     private PlatformEffector2D effector;
     public float waitTime;
+    private float time = 0.2f;
 
     private void Start()
     {
         effector = GetComponent<PlatformEffector2D>();
-        waitTime = 0.5f;
+        waitTime = time;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -20,7 +21,7 @@ public class VerticalPlatform : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
             {
-                waitTime = 0.5f;
+                waitTime = time;
             }
 
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -29,7 +30,7 @@ public class VerticalPlatform : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
                     collision.gameObject.GetComponent<NewPlayer>().animator.SetTrigger("fallThrough");
-                    waitTime = 0.5f;
+                    waitTime = time;
                     StartCoroutine(EnableCollider(collision));
                 }
                 else
