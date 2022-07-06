@@ -37907,12 +37907,12 @@ PrefabInstance:
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Size.y
-      value: 13.176597
+      value: 11.3279085
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 7.751928
+      value: 8.6762705
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -38740,12 +38740,12 @@ PrefabInstance:
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Size.y
-      value: 15.51695
+      value: 13.1088915
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 7.701531
+      value: 8.905561
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -44537,7 +44537,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 8.271646}
+  m_Offset: {x: 0, y: 11.579832}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -44548,7 +44548,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 17.543291}
+  m_Size: {x: 1, y: 10.926918}
   m_EdgeRadius: 0
 --- !u!1001 &7417304912193870988
 PrefabInstance:
@@ -44560,12 +44560,12 @@ PrefabInstance:
     - target: {fileID: 11741636345320866, guid: 54fbe7a04dcb44d6c9c9e03848e4593d,
         type: 3}
       propertyPath: m_Size.y
-      value: 17.543291
+      value: 10.926918
       objectReference: {fileID: 0}
     - target: {fileID: 11741636345320866, guid: 54fbe7a04dcb44d6c9c9e03848e4593d,
         type: 3}
       propertyPath: m_Offset.y
-      value: 8.271646
+      value: 11.579832
       objectReference: {fileID: 0}
     - target: {fileID: 1212301387469311122, guid: 54fbe7a04dcb44d6c9c9e03848e4593d,
         type: 3}

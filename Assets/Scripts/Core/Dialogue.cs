@@ -48,14 +48,15 @@ public class Dialogue : MonoBehaviour
         dialogue.Add("TutorialNPC3", new string[]
         {
             "As a red Chameleon, you can perform a Dash, which helps you jump further or destroy unstable walls.",
-            "Use the left shift key to execute the Dash!"
+            "Use the left shift key to execute the Dash!",
+            "Make sure you have enough run-up!"
         });
         
         dialogue.Add("TutorialNPC4", new string[]
         {
             "This color balloon was your first checkpoint. Should you make a mistake, you can continue from there.",
             "By the way, you can change your color with E and Q or with the mouse buttons, if you should be in possession of several colors.",
-            "Use the available color wisely! If you waste it, you won't be able to complete your tasks.",
+            "Each color-specific move consumes color from your supply. If you waste it, you won't be able to complete your tasks.",
             "In this case, you can use the pause menu to get to the last checkpoint."
         });
         
