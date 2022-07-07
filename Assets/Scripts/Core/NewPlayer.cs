@@ -121,6 +121,7 @@ public class NewPlayer : PhysicsObject
             transform.position = new Vector3(sesVal.spawnLocation[0], sesVal.spawnLocation[1], sesVal.spawnLocation[2]);
             colorAmmo = new[] {sesVal.spawnColorAmmo[0], sesVal.spawnColorAmmo[1], sesVal.spawnColorAmmo[2]};
             coins = sesVal.spawnCoins[0];
+            consumeColor = true;
         }
         if (colorAmmo[0] > 0) color = 0;
         else if (colorAmmo[1] > 0) color = 1;
