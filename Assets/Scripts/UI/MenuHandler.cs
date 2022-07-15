@@ -15,6 +15,9 @@ public class MenuHandler : MonoBehaviour {
     [SerializeField] private GameObject mainmenu;
     [SerializeField] private GameObject credits;
     [SerializeField] private GameObject levelSel;
+    [SerializeField] private GameObject story;
+    [SerializeField] private GameObject mainMusic;
+    [SerializeField] private GameObject storyMusic;
 
     private void Start()
     {
@@ -58,6 +61,24 @@ public class MenuHandler : MonoBehaviour {
         GameManager.Instance.audioSource.PlayOneShot(openSound);
         submenu.SetActive(true);
         mainmenu.SetActive(false);
+    }
+    
+    public void GoToStory()
+    {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
+        story.SetActive(true);
+        mainmenu.SetActive(false);
+        storyMusic.SetActive(true);
+        mainMusic.SetActive(false);
+    }
+    
+    public void storyToMain()
+    {
+        GameManager.Instance.audioSource.PlayOneShot(openSound);
+        story.SetActive(false);
+        mainmenu.SetActive(true);
+        storyMusic.SetActive(false);
+        mainMusic.SetActive(true);
     }
     
     public void GoToLevelSel()
