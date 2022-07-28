@@ -1365,6 +1365,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.2525024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.006765
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.0175018
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.169257
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -3522,6 +3542,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 13.907378
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 7.8928504
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -3747,6 +3777,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.0220795
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.557943
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.8142624
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.26127
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -4417,6 +4467,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9668083
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.244359
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01659584
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 7.9380774
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -4795,6 +4865,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9216461
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.834673
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.8867874
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.27304
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -6313,6 +6403,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.926239
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.968363
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.036880493
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.005311
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -6696,6 +6806,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 15.079851
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.296771
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -6915,6 +7035,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.117346
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.119303
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -7689,6 +7819,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.200456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.143915
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -8224,13 +8364,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.951666
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
       propertyPath: m_Size.y
-      value: 27.250616
+      value: 26.350138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.024167001
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: -7.1015787
+      value: -7.551818
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -9988,13 +10138,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.9562284
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
       propertyPath: m_Size.y
-      value: 50.481697
+      value: 49.64196
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.021885812
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 4.5139627
+      value: 4.9338303
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -10141,13 +10301,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.9616921
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
       propertyPath: m_Size.y
-      value: 29.514761
+      value: 28.504221
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.019153953
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 6.579463
+      value: 7.084733
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -11692,12 +11862,12 @@ PrefabInstance:
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Size.y
-      value: 33.27327
+      value: 32.369278
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 16.136635
+      value: 16.58863
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -12117,6 +12287,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.2224579
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 13.502243
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.0009689
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 7.988555
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -14675,6 +14865,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.91900635
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.617277
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.040496826
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.175288
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -15240,13 +15450,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.96988785
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
       propertyPath: m_Size.y
-      value: 29.690851
+      value: 25.09041
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.015056074
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 6.667508
+      value: 7.410676
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -18532,12 +18752,12 @@ PrefabInstance:
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Size.y
-      value: 33.27327
+      value: 32.4874
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 16.136635
+      value: 16.52957
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -18679,6 +18899,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.932251
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.181509
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.03387451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.069192
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -19469,6 +19709,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.955031
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 12.814995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.022484511
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 9.581739
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -20525,13 +20785,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.98141634
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
       propertyPath: m_Size.y
-      value: 25.641119
+      value: 24.58801
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.009291828
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 4.642642
+      value: 4.116088
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -23062,6 +23332,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9404068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.011883
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0297966
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 7.9452105
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -23204,6 +23494,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.539057
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 9.068597
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -24120,6 +24420,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: climbableWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.96947
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.3356905
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.015264988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.113226
+      objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_RootOrder
@@ -24280,12 +24600,12 @@ PrefabInstance:
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Size.y
-      value: 25.641119
+      value: 24.640879
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: 4.642642
+      value: 4.142522
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -24996,13 +25316,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.95468855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
       propertyPath: m_Size.y
-      value: 4.9583406
+      value: 3.4766607
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.022655725
       objectReference: {fileID: 0}
     - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
       propertyPath: m_Offset.y
-      value: -5.698747
+      value: -5.658339
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -25191,6 +25521,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.933136
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 15.161024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.033432007
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.289294
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
@@ -25695,6 +26045,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: climbableWall (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 14.290218
+      objectReference: {fileID: 0}
+    - target: {fileID: 6705117910151781932, guid: f28586f81efa74540940a073c5c947cf,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 8.126724
       objectReference: {fileID: 0}
     - target: {fileID: 9144410092315460308, guid: f28586f81efa74540940a073c5c947cf,
         type: 3}
