@@ -63,8 +63,8 @@ public class Dialogue : MonoBehaviour
         dialogue.Add("TutorialNPC5", new string[]
         {
             "Congratulations, you have successfully completed the tutorial!",
-            "Unfortunately, there are no more levels available yet.",
-            "I would be very happy to receive feedback!"
+            "Now you are ready to support us in the fight against the scribbles!",
+            "Good luck!"
         });
     }
 }
