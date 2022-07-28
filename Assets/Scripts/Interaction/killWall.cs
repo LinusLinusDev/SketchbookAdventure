@@ -12,11 +12,11 @@ public class killWall : MonoBehaviour
         {
             NewPlayer.Instance.Freeze(true);
             Time.timeScale = 1f;
-            GameObject.FindWithTag("HUD").GetComponent<Animator>().SetTrigger("coverScreen");
+            GameManager.Instance.hud.animator.SetTrigger("coverScreen");
             StartCoroutine(LoadThis(2f));
         }
     }
-    
+
     IEnumerator LoadThis(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

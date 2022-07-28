@@ -9276,10 +9276,11 @@ MonoBehaviour:
     Palm  as part of the course\nGame Design at the FH Aachen.\n\nConcept\nJasmina
     Meier\nAlina Schumacher\nLinus Palm\n\nWorld Sprites\nJasmina Meier\n\nCharacter
     Sprites\nAlina Schumacher\n\nProgramming\nLinus Palm\n\nAnimations\nJasmina Meier\nAlina
-    Schumacher\nLinus Palm\n\nLevel Design\nJasmina Meier\n\nQuality Assurance\nLinus
-    Palm\n\nSound Effects\nLinus Palm\n\nMusic\nLinus Palm\n\nTesting\nJasmina Meier\nAlina
-    Schumacher\nLinus Palm\nChristian Spillmann\nTugay Adakli\nTobias Richter\n\nSources\n\nMusic\nbensound.com\n\nSound
-    Effects\nkenney.nl\n\ncreated with Unity \nVersion 20.3.33f1"
+    Schumacher\nLinus Palm\n\nLevel Design\nJasmina Meier\nAlina Schumacher\n\nQuality
+    Assurance\nLinus Palm\n\nSound Effects\nLinus Palm\n\nMusic\nLinus Palm\n\nTesting\nJasmina
+    Meier\nAlina Schumacher\nLinus Palm\nChristian Spillmann\nTugay Adakli\nTobias
+    Richter\n\nSources\nMusic\nbensound.com\n\nSound Effects\nkenney.nl\n\ncreated
+    with Unity \nVersion 20.3.33f1"
 --- !u!222 &1944019911
 CanvasRenderer:
   m_ObjectHideFlags: 0
