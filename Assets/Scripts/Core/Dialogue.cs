@@ -66,5 +66,20 @@ public class Dialogue : MonoBehaviour
             "Now you are ready to support us in the fight against the scribbles!",
             "Good luck!"
         });
+
+        dialogue.Add("Lvl1NPC1", new string[]
+        {
+            "I'm on a diet right now... ",
+            "So I put all my cookies on the highest shelf!",
+            "Too bad, I can still reach effortlessly with my TOUNGE..."
+        });
+
+        dialogue.Add("Lvl1NPC2", new string[]
+        {
+            "I love to eat GREEN Butterflies!",
+            "Recently, one was resting on the wall...",
+            "I launched my TOUNGE at it!",
+            "...But I missed and now I'm stuck..."
+        });
     }
 }
