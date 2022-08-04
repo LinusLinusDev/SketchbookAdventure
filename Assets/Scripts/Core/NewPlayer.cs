@@ -338,6 +338,7 @@ public class NewPlayer : PhysicsObject
             if (color != 0) climbing = false;
             
             // Cheat
+            /*
             if (Input.GetKeyDown("g"))
             {
                 colorAmmo[0] += 200;
@@ -352,6 +353,7 @@ public class NewPlayer : PhysicsObject
             {
                 colorAmmo[2] += 200;
             }
+            */
             //
 
             //Allow the player to jump even if they have just fallen off an edge ("fall forgiveness")
