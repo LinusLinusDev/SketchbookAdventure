@@ -22,6 +22,7 @@ public class MenuHandler : MonoBehaviour {
     private void Start()
     {
         sv.deleteCheckpoint();
+        Cursor.visible = true;
     }
 
     public void QuitGame()
