@@ -69,9 +69,9 @@ public class Dialogue : MonoBehaviour
 
         dialogue.Add("Lvl1NPC1", new string[]
         {
-            "I'm on a diet right now... ",
+            "I'm on a diet right now...",
             "So I put all my cookies on the highest shelf!",
-            "Too bad, I can still reach effortlessly with my TOUNGE..."
+            "Too bad, I can still grab them effortlessly with my TONGUE...."
         });
 
         dialogue.Add("Lvl1NPC2", new string[]
