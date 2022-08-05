@@ -13,7 +13,7 @@ public class SessionValues : ScriptableObject
 
     private void Awake()
     {
-        MusicVolume = 1f;
+        MusicVolume = 0.6f;
         SoundVolume = 0.5f;
         deleteCheckpoint();
     }
