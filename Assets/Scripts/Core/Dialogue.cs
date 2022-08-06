@@ -77,9 +77,16 @@ public class Dialogue : MonoBehaviour
         dialogue.Add("Lvl1NPC2", new string[]
         {
             "I love to eat GREEN Butterflies!",
-            "Recently, one was resting on the wall...",
-            "I launched my TOUNGE at it!",
-            "...But I missed and now I'm stuck..."
+            "Recently, one was resting on the WALL and I tried to catch it...",
+            "...But I hit the WALL with my TONGUE instead and now I'm stuck on it..."
         });
+
+        dialogue.Add("CongratsNPC", new string[]
+       {
+            "Congratulations! You made it!",
+            "Thank you for playing the first test version of Sketchbook Adventure.",
+            "Sadly this is the End of this Sketchbook so far.",
+            "Now go on! Pop the baloon to return to the front page."
+       });
     }
 }
