@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-
-/*This script stores every dialogue conversation in a public Dictionary.*/
 
 public class Dialogue : MonoBehaviour
 {
@@ -11,7 +8,6 @@ public class Dialogue : MonoBehaviour
 
     void Start()
     {
-        //NPC
         dialogue.Add("CharacterA", new string[] {
             "Hey man, how are you doing today?",
             "I'm an NPC!",

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-/*Allows buttons to fire various functions, like QuitGame and LoadScene*/
 
 public class MenuHandler : MonoBehaviour {
     

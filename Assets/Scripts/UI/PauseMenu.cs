@@ -1,9 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-/*Disables the cursor, freezes timeScale and contains functions that the pause menu button can use*/ 
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,7 +10,6 @@ public class PauseMenu : MonoBehaviour
 
     private bool canUnpause = true;
     
-    // Use this for initialization
     void OnEnable()
     {
         Cursor.visible = true;

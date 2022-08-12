@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
-
-/*Tells a cut-scene to begin playing, and then load a scene when completed.*/
 
 public class VideoController : MonoBehaviour
 {
@@ -17,7 +13,6 @@ public class VideoController : MonoBehaviour
 
     void Start()
     {
-        //Begin invoke!
         InvokeRepeating("CheckOver", .1f, .1f);
     }
 
@@ -40,7 +35,6 @@ public class VideoController : MonoBehaviour
                     SceneManager.LoadScene(whichLevel);
                 }
 
-                //Cancel Invoke since video is no longer playing
                 CancelInvoke("checkOver");
             }
         }

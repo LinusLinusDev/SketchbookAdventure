@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/*The functionality for flying enemies*/
-
+﻿using UnityEngine;
 public class Bomb : MonoBehaviour
 {
 
@@ -11,32 +6,31 @@ public class Bomb : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     [SerializeField] private GameObject bomb;
     [System.NonSerialized] public EnemyBase enemyBase;
-    private Transform lookAtTarget; //If I'm a bomb, I will point to a transform, like the player
+    private Transform lookAtTarget;
 
     [Header ("Ground Avoidance")]
     [SerializeField] private float rayCastWidth = 5;
     [SerializeField] private float rayCastOffsetY = 1;
-    [SerializeField] private LayerMask layerMask; //What will I be looking to avoid?
+    [SerializeField] private LayerMask layerMask;
     private RaycastHit2D rayCastHit;
 
     [Header ("Flight")]
-    [SerializeField] private bool avoidGround; //Should I steer away from the ground?
+    [SerializeField] private bool avoidGround;
     private Vector3 distanceFromPlayer;
     [SerializeField] private float maxSpeedDeviation;
-    [SerializeField] private float easing = 1; //How intense should we ease when changing speed? The higher the number, the less air control!
+    [SerializeField] private float easing = 1;
     private float bombCounter = 0;
-    [SerializeField] private float bombCounterMax = 5; //How many seconds before shooting another bomb?
-    public float attentionRange; //How far can I see?
-    public float lifeSpan; //Keep at zero if you don't want to explode after a certain period of time.
+    [SerializeField] private float bombCounterMax = 5;
+    public float attentionRange; 
+    public float lifeSpan;
     [System.NonSerialized] public float lifeSpanCounter;
-    private bool sawPlayer = false; //Have I seen the player?
+    private bool sawPlayer = false;
     [SerializeField] private float speedMultiplier; 
     [System.NonSerialized] public Vector3 speed;
     [System.NonSerialized] public Vector3 speedEased;
     [SerializeField] private bool shootsBomb;
     [SerializeField] private Vector2 targetOffset = new Vector2(0, 2);
 
-    // Use this for initialization
     void Start()
     {
         enemyBase = GetComponent<EnemyBase>();
@@ -52,17 +46,15 @@ public class Bomb : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // Draw a yellow sphere at the transform's position indicating the attentionRange
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attentionRange);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        distanceFromPlayer.x = (NewPlayer.Instance.transform.position.x + targetOffset.x) - transform.position.x;
-        distanceFromPlayer.y = (NewPlayer.Instance.transform.position.y + targetOffset.y) - transform.position.y;
-        speedEased += (speed - speedEased) * Time.deltaTime * easing;
+        distanceFromPlayer.x = NewPlayer.Instance.transform.position.x + targetOffset.x - transform.position.x;
+        distanceFromPlayer.y = NewPlayer.Instance.transform.position.y + targetOffset.y - transform.position.y;
+        speedEased += (speed - speedEased) * (Time.deltaTime * easing);
         transform.position += speedEased * Time.deltaTime;
 
         if (Mathf.Abs(distanceFromPlayer.x) <= attentionRange && Mathf.Abs(distanceFromPlayer.y) <= attentionRange || lookAtTarget != null)
@@ -100,8 +92,7 @@ public class Bomb : MonoBehaviour
             }
 
         }
-
-        // Check for walls and ground
+        
         if (avoidGround)
         {
             rayCastHit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + rayCastOffsetY), Vector2.right, rayCastWidth, layerMask);

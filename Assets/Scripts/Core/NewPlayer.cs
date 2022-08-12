@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
-
-/*Adds player functionality to a physics object*/
 
 [RequireComponent(typeof(RecoveryCounter))]
 
@@ -33,7 +27,6 @@ public class NewPlayer : PhysicsObject
     public AudioClip poofSound;
     public AudioClip tongueSound;
     
-    // Singleton instantiation
     private static NewPlayer instance;
     public static NewPlayer Instance
     {
@@ -49,13 +42,13 @@ public class NewPlayer : PhysicsObject
     [SerializeField] private string[] cheatItems;
     public bool dead = false;
     public bool frozen = false;
-    private float fallForgivenessCounter; //Counts how long the player has fallen off a ledge
-    [SerializeField] private float fallForgiveness = .2f; //How long the player can fall from a ledge and still jump
+    private float fallForgivenessCounter; 
+    [SerializeField] private float fallForgiveness = .2f;
     [System.NonSerialized] public string groundType = "grass";
     [System.NonSerialized] public RaycastHit2D ground; 
-    [SerializeField] Vector2 hurtLaunchPower; //How much force should be applied to the player when getting hurt?
-    public float launch; //The float added to x and y moveSpeed. This is set with hurtLaunchPower, and is always brought back to zero
-    [SerializeField] private float launchRecovery; //How slow should recovering from the launch be? (Higher the number, the longer the launch will last)
+    [SerializeField] Vector2 hurtLaunchPower;
+    public float launch;
+    [SerializeField] private float launchRecovery;
     private bool jumping;
     public bool climbing;
     public bool dashing;
@@ -132,7 +125,6 @@ public class NewPlayer : PhysicsObject
         origLocalScale = transform.localScale;
         recoveryCounter = GetComponent<RecoveryCounter>();
         
-        //Find all sprites so we can hide them when the player dies.
         graphicSprites = GetComponentsInChildren<SpriteRenderer>();
 
         SetGroundType();
@@ -173,11 +165,9 @@ public class NewPlayer : PhysicsObject
 
     protected void ComputeVelocity()
     {
-        //Player movement & attack
         Vector2 move = Vector2.zero;
         ground = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), -Vector2.up);
-
-        //Lerp launch back to zero at all times
+        
         launch += (0 - launch) * Time.deltaTime * launchRecovery;
 
         if (Input.GetButtonDown("Cancel"))
@@ -274,6 +264,7 @@ public class NewPlayer : PhysicsObject
                 }
             }
 
+            // change color
             if (color != 3)
             {
                 if (Input.GetKeyDown("e") || Input.GetMouseButtonDown(1))
@@ -355,8 +346,7 @@ public class NewPlayer : PhysicsObject
             }
             */
             //
-
-            //Allow the player to jump even if they have just fallen off an edge ("fall forgiveness")
+            
             if (!grounded)
             {
                 if (fallForgivenessCounter < fallForgiveness && !jumping)
@@ -376,8 +366,7 @@ public class NewPlayer : PhysicsObject
                 fallForgivenessCounter = 0;
                 animator.SetBool("grounded", true);
             }
-
-            //Set each animator float, bool, and trigger to it knows which animation to fire
+            
             animator.SetBool("climb", climbing);
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
             animator.SetFloat("velocityY", velocity.y);
@@ -389,14 +378,12 @@ public class NewPlayer : PhysicsObject
         }
         else
         {
-            //If the player is set to frozen, his launch should be zeroed out!
             launch = 0;
         }
     }
 
     public void SetGroundType()
     {
-        //If we want to add variable ground types with different sounds, it can be done here
         switch (groundType)
         {
             case "Grass":
@@ -407,7 +394,6 @@ public class NewPlayer : PhysicsObject
 
     public void Freeze(bool freeze)
     {
-        //Set all animator params to ensure the player stops running, jumping, etc and simply stands
         if (freeze)
         {
             animator.SetInteger("moveDirection", 0);
@@ -425,7 +411,6 @@ public class NewPlayer : PhysicsObject
 
     public void GetHurt(int hurtDirection, int hitPower)
     {
-        //If the player is not frozen (ie talking, spawning, etc), recovering, and pounding, get hurt!
         if (!frozen && !recoveryCounter.recovering && !pounding)
         {
             poof(color);
@@ -437,7 +422,7 @@ public class NewPlayer : PhysicsObject
             launch = hurtDirection * (hurtLaunchPower.x);
             recoveryCounter.counter = 0;
 
-            if (color == 3) ; //die code here
+            if (color == 3) ;
             else
             {
                 if (colorAmmo[color] > hitPower)
@@ -478,20 +463,13 @@ public class NewPlayer : PhysicsObject
         health = maxHealth;
         for (int i = 0; i < colorAmmo.Length; i++) colorAmmo[i] = maxColor;
     }
-
-    public void SubtractAmmo()
-    {
-        if (ammo > 0)
-        {
-            ammo -= 20 * Time.deltaTime;
-        }
-    }
+    
 
     public void Jump(float jumpMultiplier)
     {
         if (velocity.y != jumpPower)
         {
-            velocity.y = jumpPower * jumpMultiplier; //The jumpMultiplier allows us to use the Jump function to also launch the player from bounce platforms
+            velocity.y = jumpPower * jumpMultiplier;
             PlayJumpSound();
             PlayStepSound();
             JumpEffect();
@@ -501,7 +479,6 @@ public class NewPlayer : PhysicsObject
     
     public void Dash(float dashMultiplier)
     {
-        //PlayDashSound();
         PlayStepSound();
         JumpEffect();
         dashing = true;
@@ -511,7 +488,6 @@ public class NewPlayer : PhysicsObject
 
     public void PlayStepSound()
     {
-        //Play a step sound at a random pitch between two floats, while also increasing the volume based on the Horizontal axis
         audioSource.pitch = (Random.Range(0.9f, 1.1f));
         audioSource.PlayOneShot(stepSound, Mathf.Abs(Input.GetAxis("Horizontal") / 10)*GameManager.Instance.audioSource.volume);
     }
@@ -541,15 +517,8 @@ public class NewPlayer : PhysicsObject
         }
     }
 
-    public void PunchEffect()
-    {
-        GameManager.Instance.audioSource.PlayOneShot(punchSound);
-        cameraEffects.Shake(100, 1f);
-    }
-
     public void ActivatePound()
     {
-        //A series of events needs to occur when the player activates the pound ability
         if (!pounding)
         {
             animator.SetBool("pounded", false);
@@ -566,7 +535,6 @@ public class NewPlayer : PhysicsObject
     }
     public void PoundEffect()
     {
-        //As long as the player as activated the pound in ActivatePound, the following will occur when hitting the ground.
         if (pounding)
         {
             animator.ResetTrigger("attack");
@@ -582,7 +550,6 @@ public class NewPlayer : PhysicsObject
 
     public void FlashEffect()
     {
-        //Flash the player quickly
         animator.SetTrigger("flash");
     }
 
@@ -593,37 +560,8 @@ public class NewPlayer : PhysicsObject
             sprite.gameObject.SetActive(!hide);
     }
 
-    public void Shoot(bool equip)
-    {
-        //Flamethrower ability
-        if (GameManager.Instance.inventory.ContainsKey("flamethrower"))
-        {
-            if (equip)
-            {
-                if (!shooting)
-                {
-                    animator.SetBool("shooting", true);
-                    GameManager.Instance.audioSource.PlayOneShot(equipSound);
-                    flameParticlesAudioSource.Play();
-                    shooting = true;
-                }
-            }
-            else
-            {
-                if (shooting)
-                {
-                    animator.SetBool("shooting", false);
-                    flameParticlesAudioSource.Stop();
-                    GameManager.Instance.audioSource.PlayOneShot(holsterSound);
-                    shooting = false;
-                }
-            }
-        }
-    }
-
     public void SetUpCheatItems()
     {
-        //Allows us to get various items immediately after hitting play, allowing for testing. 
         for (int i = 0; i < cheatItems.Length; i++)
         {
             GameManager.Instance.GetInventoryItem(cheatItems[i], null);

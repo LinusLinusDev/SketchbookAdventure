@@ -1,9 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
-/*Controls the dialogue box and it's communication with Dialogue.cs, which contains the character dialogue*/
 
 public class DialogueBoxController : MonoBehaviour
 {
@@ -46,14 +43,11 @@ public class DialogueBoxController : MonoBehaviour
     private bool horizontalKeyIsDown = true;
     private bool submitKeyIsDown = true;
     private bool typing = true;
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (activated)
         {
-            //Submit
-            //Check for key press
             if (((Input.GetAxis("Submit") > 0) || (Input.GetAxis("Jump") > 0)) && !submitKeyIsDown)
             {
                 submitKeyIsDown = true;
@@ -76,8 +70,7 @@ public class DialogueBoxController : MonoBehaviour
                     }
                 }
             }
-
-            //Check for first release to ensure we can't spam
+            
             if (submitKeyIsDown && Input.GetAxis("Submit") < .001 && Input.GetAxis("Jump") < .001)
             {
                 if (!typing)
@@ -89,9 +82,7 @@ public class DialogueBoxController : MonoBehaviour
                     }
                 }
             }
-
-            //Choices
-            //Check for key press
+            
             if ((Input.GetAxis("Horizontal") != 0) && !horizontalKeyIsDown && animator.GetBool("hasChoices") == true)
             {
                 if (animator.GetInteger("choiceSelection") == 1)
@@ -107,8 +98,7 @@ public class DialogueBoxController : MonoBehaviour
                 audioSource.PlayOneShot(selectionSound, GameManager.Instance.audioSource.volume);
                 horizontalKeyIsDown = true;
             }
-
-            //Check for first release to ensure we can't spam
+            
             if (horizontalKeyIsDown && Input.GetAxis("Horizontal") == 0)
             {
                 horizontalKeyIsDown = false;
@@ -168,8 +158,7 @@ public class DialogueBoxController : MonoBehaviour
                 dialogueAudioSource.PlayOneShot(audioChoices[1], GameManager.Instance.audioSource.volume);
             }
         }
-
-        //The dialogueTrigger will pass itself into this function only if you have the right items to close the dialogue and complete the quest
+        
         if (currentDialogueTrigger != null)
         {
             currentDialogueTrigger.UseItem();
@@ -247,17 +236,14 @@ public class DialogueBoxController : MonoBehaviour
 
         textMesh.text = "";
         StartCoroutine("TypeText");
-
-        //Wait before typing
+        
         yield return new WaitForSeconds(.4f);
-
-        //Show choices
+        
         if (index == choiceLocation && dialogue.dialogue.ContainsKey(fileName + "Choice1"))
         {
             ShowChoices(true);
         }
-
-        //Play character audio
+        
         if (audioLines.Length != 0)
         {
             dialogueAudioSource.Stop();

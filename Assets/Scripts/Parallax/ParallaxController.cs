@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-
-/*Finds all of the gameObjects that have a ParallaxLayer.cs script, and moves them!*/
 
 public class ParallaxController : MonoBehaviour
 {
@@ -37,7 +34,6 @@ public class ParallaxController : MonoBehaviour
         }
     }
 
-    //Finds all the objects that have a ParallaxLayer component, and adds them to the parallaxLayers list.
     void FindLayers()
     {
         parallaxLayers.Clear();
@@ -53,7 +49,6 @@ public class ParallaxController : MonoBehaviour
         }
     }
 
-    //Move each layer based on each layers position. This is being used via the ParallaxLayer script
     void MoveLayer(float positionChangeX, float positionChangeY)
     {
         foreach (ParallaxLayer layer in parallaxLayers)

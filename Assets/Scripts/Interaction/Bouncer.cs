@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-/*Causes a bouncy platform to appear via animation if player is within range, allowing the player to bounce!*/
+﻿using UnityEngine;
 
 public class Trampoline : MonoBehaviour
 {

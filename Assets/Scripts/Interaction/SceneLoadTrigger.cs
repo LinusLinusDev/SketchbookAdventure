@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/*Loads a new scene, while also clearing level-specific inventory!*/
+﻿using UnityEngine;
 
 public class SceneLoadTrigger : MonoBehaviour
 {

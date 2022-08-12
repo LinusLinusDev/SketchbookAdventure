@@ -1,39 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
-/*Use on any gameObject to fade in and out an audioClip. Used for things like
-ambience and music.*/
 
 public class MenuAudioTrigger : MonoBehaviour
 {
 
     private AudioSource audioSource;
-    [SerializeField] private bool autoPlay; //Begins playing sound immediately without the player triggering the collider
-    [SerializeField] private bool controlsTitle; //This allows the level title to fade in while also fading in the music
+    [SerializeField] private bool autoPlay; 
+    [SerializeField] private bool controlsTitle; 
     [SerializeField] private float fadeSpeed; 
     [SerializeField] private bool loop;
     [SerializeField] private AudioClip sound;
-    public float maxVolume; //The volume we are going to fade to
-    private bool triggered; //Is set to true once the player touches the collider trigger zone
+    public float maxVolume;
+    private bool triggered;
 
-    // Use this for initialization
     void Start()
     {
         Reset(false, sound, 0);
         StartCoroutine(EnableCollider());
     }
 
-    // Update is called once per frame
     void Update()
     {
         audioSource.loop = loop;
 
         if (audioSource.volume > maxVolume) audioSource.volume = maxVolume;
-        
-        /*If the player isn't dead, and we either trigger or want to 
-        AudioTrigger to automatically play, the audioSource will begin playing.
-        */
-
         
         if (triggered || autoPlay)
         {
@@ -42,7 +33,6 @@ public class MenuAudioTrigger : MonoBehaviour
                 audioSource.Play();
             }
 
-            //Begin fading in the audioSource volume as long as it's smaller than the goToVolume
             if (audioSource.volume < maxVolume)
             {
                 audioSource.volume += fadeSpeed * Time.deltaTime;
@@ -85,7 +75,6 @@ public class MenuAudioTrigger : MonoBehaviour
         }
     }
 
-    //Find the audioSource, set it's volume and clip, and determine if it should start or stop playing.
     public void Reset(bool play, AudioClip clip, float startVolume = 1)
     {
         audioSource = GetComponent<AudioSource>();
@@ -100,9 +89,6 @@ public class MenuAudioTrigger : MonoBehaviour
 
     private IEnumerator EnableCollider()
     {
-        /*If the player spawns inside a large trigger area, it won't trigger. Therefore, we wait 4 seconds 
-        to actually enable it so the trigger can actually occur 
-        */
         yield return new WaitForSeconds(4f);
         GetComponent<BoxCollider2D>().enabled = true;
     }

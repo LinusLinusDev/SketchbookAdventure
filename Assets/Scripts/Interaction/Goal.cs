@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-/*Loads a new scene, while also clearing level-specific inventory!*/
 
 public class Goal : MonoBehaviour
 {

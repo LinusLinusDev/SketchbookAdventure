@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/*The core functionality of both the EnemyFlyer and the EnemyWalker*/
+﻿using UnityEngine;
 
 [RequireComponent(typeof(RecoveryCounter))]
 
@@ -20,7 +16,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private int health = 3;
     public AudioClip hitSound;
     public bool isBomb;
-    [SerializeField] bool requirePoundAttack; //Requires the player to use the down attack to hurt
+    [SerializeField] bool requirePoundAttack;
 
     void Start()
     {
@@ -39,7 +35,6 @@ public class EnemyBase : MonoBehaviour
 
     public void GetHurt(int launchDirection, int hitPower)
     {
-        //Hit the enemy, causing a damage effect, and decreasing health. Allows for requiring a downward pound attack
         if ((GetComponent<Walker>() != null || GetComponent<Flyer>() != null) && !recoveryCounter.recovering)
         {
             if (!requirePoundAttack || (requirePoundAttack && NewPlayer.Instance.pounding))
@@ -51,7 +46,6 @@ public class EnemyBase : MonoBehaviour
                 audioSource.pitch = (1);
                 audioSource.PlayOneShot(hitSound,GameManager.Instance.audioSource.volume);
 
-                //Ensure the enemy and also the player cannot engage in hitting each other for the max recoveryTime for each
                 recoveryCounter.counter = 0;
                 NewPlayer.Instance.recoveryCounter.counter = 0;
 
@@ -60,8 +54,6 @@ public class EnemyBase : MonoBehaviour
                     NewPlayer.Instance.PoundEffect();
                 }
 
-
-                //The Walker being launched after getting hit is a little different than the Flyer getting launched by a hit.
                 if (GetComponent<Walker>() != null)
                 {
                     Walker walker = GetComponent<Walker>();

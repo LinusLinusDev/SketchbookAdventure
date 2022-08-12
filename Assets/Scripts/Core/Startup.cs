@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-/*Simple script telling Unity to Destroy this if it finds an identical one in the scene!*/
+﻿using UnityEngine;
 
 public class Startup : MonoBehaviour
 {
 
     public bool dontDestroyOnLoad = false;
     
-    // Use this for initialization
     void Awake()
     {
         if (dontDestroyOnLoad)

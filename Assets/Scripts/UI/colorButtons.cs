@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class colorButtons : MonoBehaviour
@@ -14,7 +12,6 @@ public class colorButtons : MonoBehaviour
         playerScript = GameObject.FindWithTag("Player").GetComponent<NewPlayer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ammo = playerScript.colorAmmo[colorNumber];
